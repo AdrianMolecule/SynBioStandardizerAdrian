@@ -5,7 +5,9 @@
 Either select an organism and type in a gene name to get the refactored sequence of that<br>
 gene and organism, or paste in your own sequence and choose which standard to refactor <br>
 the sequence for. The default is making it compatible with all standards.<br><br><hr><br>
-<form action="/cgi-bin/PrintSynGene.cgi" method="post">
+<form action="/CGI-BIN/PrintSynGene.cgi" method="post">
+<fieldset>
+<legend><i>E. coli</i> or <i>B. subtilis</i> refactored genes</legend>
 <table>
    <tr>
       <td>Organism: </td>
@@ -20,10 +22,12 @@ the sequence for. The default is making it compatible with all standards.<br><br
       <td>Gene name: </td>
       <td><input type="text" name="gene"></td>
    </tr>
-   <tr>
-      <td><br><h4>OR</h4><br></td>
-      <td><br><hr><br></td>
-   </tr>
+</table>
+</fieldset>
+<br><h4>OR</h4><br></td>
+<fieldset>
+<legend>Other gene</legend>
+<table>
    <tr>
       <td>Your sequence:</td>
       <td><textarea rows="16" cols="80" name="seq"></textarea></td>
@@ -37,11 +41,10 @@ the sequence for. The default is making it compatible with all standards.<br><br
           <input type="checkbox" name="N" value="N" checked="checked">NdeI analysis<br>
           <input type="checkbox" name="chi" value="chi" checked="checked">Recombination hotspot (Chi site) deletion<br>
    </tr>
-   <tr>
-      <td><hr></td>
-      <td><hr></td>
-   </tr>
 </table>
+</fieldset>
+<br>
+<hr>
 <br>
 <input type="submit" value="Submit">
 </form>

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 #####
 #
 # Synthetic Biology Gene Standardizer
@@ -26,8 +26,7 @@
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 # The views and conclusions contained in the software and documentation are those
-# of the authors and should not be interpreted as representing official policies, 
-# either expressed or implied, of Uppsala University.
+# of the authors. 
 #
 #####
 import cgi
@@ -85,6 +84,15 @@ if "gene" in form:
                         print("Check gene name - not in database</body></html>")
                         sys.exit("Gene not in Database")
                 i=0
+                with open("SynColiProMuts.txt") as f:
+                        chngtmpP = f.readlines();
+                        i=i+1;
+                chP1 = chngtmpP[j].split('[\'');
+                if len(chP1) == 1:
+                        changesP = '0';
+                if len(chP1) > 1:
+                        chP2 = chP1[1].split('\']');
+                        changesP = chP2[0].split('\', \'');
                 with open("SynColiMuts.txt") as f:
                         chngtmp = f.readlines()
                         i=i+1
@@ -117,39 +125,44 @@ if "gene" in form:
                 ch2 = ch1[1].split('\']')
                 changes = ch2[0].split('\', \'')
 elif "seq" in form:
-                userseq = form.getvalue("seq")
-                useq = ''.join(v for v in userseq if v.isalnum())
-                xyy = re.search('[^ACGTacgt]', useq)
+        organism = "";
+        userseq = form.getvalue("seq")
+        useq = ''.join(v for v in userseq if v.isalnum())
+        xyy = re.search('[^ACGTacgt]', useq)
 #               xyy = re.compile('[^ACGT]', re.IGNORECASE)
 #               m = xyy.match(useq)
-                if xyy:
-                        print("Only A, C, T, or G in the sequence.")
-                        sys.exit("ATCG error")
-                sseq = Seq(useq)
-                record = SeqRecord(sseq)
-                usergene = "User"
-                record.description = str(usergene)
-                outSeq = copy.deepcopy(record)
-                record.description = str(usergene)+" Original Sequence<br>\n"
-                changes = []
-                stnds.append(form.getvalue("N"))
-                stnds.append(form.getvalue("BioB"))
-                stnds.append(form.getvalue("BglB"))
-                stnds.append(form.getvalue("MoClo"))
-                stnds.append(form.getvalue("GB"))
-                stnds.append(form.getvalue("chi"))
-                genestand.refactor(outSeq, record, changes, stnds)
+        if xyy:
+                print("Only A, C, T, or G in the sequence.")
+                sys.exit("ATCG error")
+        sseq = Seq(useq)
+        record = SeqRecord(sseq)
+        usergene = "User"
+        record.description = str(usergene)
+        outSeq = copy.deepcopy(record)
+        record.description = str(usergene)+" Original Sequence<br>\n"
+        changes = []
+        stnds.append(form.getvalue("N"))
+        stnds.append(form.getvalue("BioB"))
+        stnds.append(form.getvalue("BglB"))
+        stnds.append(form.getvalue("MoClo"))
+        stnds.append(form.getvalue("GB"))
+        stnds.append(form.getvalue("chi"))
+        genestand.refactor(outSeq, record, changes, stnds)
 else:
         print("Please go back and fill in either a gene name or sequence</body></html>")
         sys.exit("Please fill in either gene or seq")
-print('<br><hr>')
-outSeq.description = str(usergene)+"'s Refactored Sequence<br>\n"
-print("<h4>Synthetic gene</h4>")
-print(outSeq.format("fasta"))
-print("<br><hr><br>")
-print("<h4>Mutations</h4>")
+print('<br><hr>');
+outSeq.description = str(usergene)+"'s Refactored Sequence<br>\n";
+print("<h4>Synthetic gene</h4>");
+print(outSeq.format("fasta"));
+print("<br><hr><br>");
+print("<h4>Mutations</h4>");
 for xyz in changes:
-        print(xyz+"<br>")
+        print(xyz+"<br>");
+if (organism == 'coli'):
+        print("<br><h4>E. coli Promoter Mutations:</h4>")
+        for xyw in changesP:
+                print(xyw+"<br>");
 print("""
 </body>
 </html>

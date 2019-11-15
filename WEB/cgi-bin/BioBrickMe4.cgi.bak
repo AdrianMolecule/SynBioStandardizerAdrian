@@ -1,0 +1,620 @@
+#!/usr/bin/env python
+#####
+#
+# BioBrickMe Synthetic Biology Gene Standardizer
+# Copyright Tyson R. Shepherd, PhD
+#
+#####
+import cgi
+import cgitb; cgitb.enable()
+import copy
+import sys
+from Bio.Seq import Seq
+from Bio.SeqRecord import SeqRecord
+from Bio import Entrez
+from Bio import SeqIO
+from Bio.Restriction import *
+from math import *
+import xml.etree.ElementTree as ET
+#
+#
+#
+print "Content-Type: text/html\n\n"
+print
+
+print """
+<html>
+<head>
+<style>
+   body {
+	font-family:courier;
+   }
+</style>
+<title>SynBio Standardizer</title>
+</head>
+<body >
+<h3>SynBio Standardizer</h3>
+"""
+form = cgi.FieldStorage()
+if "email" not in form:
+	print "Please go back and put in your E-mail address.</body></html>"
+	sys.exit("Please fill in the email address")
+if "gene" not in form and "seq" not in form:
+	print "Please go back and fill in either a gene name or sequence</body></html>"
+	sys.exit("Please fill in either gene or seq")
+usermail = form.getvalue("email")
+usergene = form.getvalue("gene")
+userseq = form.getvalue("seq")
+#
+# 
+#
+Entrez.email = usermail
+# 
+#
+# NCBI database look-up and sequence reads
+#
+if "seq" in form:
+	useq = ''.join(v for v in userseq if v.isalnum())
+	sseq = Seq(useq)
+	record = SeqRecord(sseq)
+	usergene = "UserInput"
+	record.description = str(usergene)+" Original Sequence<br>\n"
+else:
+	item = usergene
+	animal = 'Escherichia coli str. K-12 substr. MG1655'
+	search_string = item+"[Gene] AND "+animal+"[porgn:__txid511145]"
+	handleA = Entrez.esearch(db="gene", term=search_string)
+	record = Entrez.read(handleA)
+	ids = record['IdList']
+	if len(ids) > 0:
+		seq_id = ids[0]
+		handleB = Entrez.efetch(db="gene", id=seq_id, retmode="XML")
+		record = handleB.read()
+		e = ET.fromstring(record)
+		for SeqLocus in e.iter('Entrezgene_locus'):
+			SeqIntervalE = SeqLocus.find('Gene-commentary').find('Gene-commentary_seqs').find('Seq-loc').find('Seq-loc_int').find('Seq-interval')
+			seqFrom = str(int(SeqIntervalE.find('Seq-interval_from').text)+1)
+			seqTo = str(int(SeqIntervalE.find('Seq-interval_to').text)+1)
+			seqStrand = SeqIntervalE.find('Seq-interval_strand').find('Na-strand').get('value')
+			if seqStrand == "minus":
+				sstrand = 2
+			else:
+				sstrand = 1
+			seqId = SeqIntervalE.find('Seq-interval_id').find('Seq-id').find('Seq-id_gi').text
+		handleC = Entrez.efetch(db="nucleotide", id=seqId, rettype='fasta', strand=sstrand, seq_start=seqFrom, seq_stop=seqTo, retmode='text')
+		record = SeqIO.read(handleC,'fasta')
+	else:
+		exit
+outSeq = copy.deepcopy(record)
+recSeq = copy.deepcopy(record)
+#
+# Look for: non-ATG start codons, non-TAA stop codons, NdeI, XhoI, EcoRI
+#           SpeI, XbaI, PstI, mfeI, avrII, NheI, NsiI, BglII, BamHI, 
+#           SbfI, NotI, ApoI, BbsI, BsaI, MlyI, and Chi sites
+# Then makes non-conflicting point mutations to highest allowed codon usage
+#
+changes = []
+m = 1
+while m == 1:
+	m = 0
+	if str(outSeq.seq[0:3]) != 'ATG':
+		A = 'Start Codon: '+str(outSeq.seq[0:3])+'1'+'ATG'
+		changes.append(A)
+		outSeq.seq='ATG'+outSeq.seq[3:]
+		recSeq.seq='ATG'+record.seq[3:]
+	if str(outSeq.seq[len(outSeq.seq)-3:len(outSeq.seq)]) != 'TAA':
+		A = 'Stop Codon: '+str(outSeq.seq[len(outSeq.seq)-3:len(outSeq.seq)])+str(len(outSeq.seq)-3)+'TAA'
+		changes.append(A)
+		outSeq.seq=outSeq.seq[:len(outSeq.seq)-3]+'TAA'
+	if "easyclone" in form:
+		ndeInst = NdeI.search(outSeq.seq)
+		for i in ndeInst:
+			m = 1
+			j = (i - 3) % 3
+			k = i - 2
+			if j == 0:
+				k = k + 2
+				A = "NdeI: T"+str(k)+"C"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"C"+outSeq.seq[k:]
+			elif j == 2:
+				k = k + 3
+				A = "NdeI: A"+str(k)+"C"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"C"+outSeq.seq[k:]
+			elif j == 1:
+				k = k + 4
+				A = "NdeI: T"+str(k)+"C"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"C"+outSeq.seq[k:]
+	if "easyclone" in form or "BglB" in form:
+		xhoInst = XhoI.search(outSeq.seq)
+		for i in xhoInst:
+			m = 1
+			j = (i - 2) % 3
+			k = i - 1
+			if j == 0:
+				k = k + 2
+				A = "XhoI: C"+str(k)+"G"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"G"+outSeq.seq[k:]
+			elif j == 2:
+				k = k + 3
+				A = "XhoI: G"+str(k)+"C"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"C"+outSeq.seq[k:]
+			elif j == 1:
+				k = k + 4
+				A = "XhoI: A"+str(k)+"T"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"T"+outSeq.seq[k:]
+	if "BglB" in form or "BioB" in form:
+		ecoInst = EcoRI.search(outSeq.seq)
+		for i in ecoInst:
+			m = 1
+			j = (i - 2) % 3
+			k = i - 1
+			if j == 0:
+				k = k + 2
+				A = "EcoRI: A"+str(k)+"G"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"G"+outSeq.seq[k:]
+			elif j == 2:
+				k = k + 3
+				A = "EcoRI: T"+str(k)+"C"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"C"+outSeq.seq[k:]
+			elif j == 1:
+				k = k + 4
+				A = "EcoRI: T"+str(k)+"C"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"C"+outSeq.seq[k:]
+	if "BioB" in form:
+		xbaInst = XbaI.search(outSeq.seq)
+		for i in xbaInst:
+			m = 1
+			j = (i - 2) % 3
+			k = i - 1
+			if j == 0:
+				k = k + 3
+				A = "XbaI: AGA"+str(k)+"CGT"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"CGT"+outSeq.seq[k+2:]
+			elif j == 2:
+				k = k + 3
+				A = "XbaI: A"+str(k)+"G"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"G"+outSeq.seq[k:]
+			elif j == 1:
+				k = k + 4
+				A = "XbaI: G"+str(k)+"A"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"A"+outSeq.seq[k:]
+		speInst = SpeI.search(outSeq.seq)
+		for i in speInst:
+			m = 1
+			j = (i - 2) % 3
+			k = i - 1
+			if j == 0:
+				k = k + 2
+				A = "SpeI: T"+str(k)+"C"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"C"+outSeq.seq[k:]
+			elif j == 2:
+				k = k + 3
+				A = "SpeI: A"+str(k)+"G"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"G"+outSeq.seq[k:]
+			elif j == 1:
+				k = k + 4
+				A = "SpeI: G"+str(k)+"A"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"A"+outSeq.seq[k:]
+		pstInst = PstI.search(outSeq.seq)
+		for i in pstInst:
+			m = 1
+			j = (i - 6) % 3
+			k = i - 5
+			if j == 0:
+				k = k + 5
+				A = "PstI: G"+str(k)+"A"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"A"+outSeq.seq[k:]
+			elif j == 2:
+				k = k + 3
+				A = "PstI: C"+str(k)+"T"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"T"+outSeq.seq[k:]
+			elif j == 1:
+				k = k + 4
+				A = "PstI: A"+str(k)+"G"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"G"+outSeq.seq[k:]
+		mfeInst = MfeI.search(outSeq.seq)
+		for i in mfeInst:
+			m = 1
+			j = (i - 2) % 3
+			k = i - 1
+			if j == 0:
+				k = k + 3
+				A = "MfeI: T"+str(k)+"C"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"C"+outSeq.seq[k:]
+			elif j == 2:
+				k = k + 3
+				A = "MfeI: T"+str(k)+"C"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"C"+outSeq.seq[k:]
+			elif j == 1:
+				k = k + 4
+				A = "MfeI: T"+str(k)+"C"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"C"+outSeq.seq[k:]
+		avrInst = AvrII.search(outSeq.seq)
+		for i in avrInst:
+			m = 1
+			j = (i - 2) % 3
+			k = i - 1
+			if j == 0:
+				k = k + 3
+				A = "AvrII: AGG"+str(k)+"CGT"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"CGT"+outSeq.seq[k+2:]
+			elif j == 2:
+				k = k + 3
+				A = "AvrII: A"+str(k)+"G"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"G"+outSeq.seq[k:]
+			elif j == 1:
+				k = k + 4
+				A = "AvrII: G"+str(k)+"A"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"A"+outSeq.seq[k:]
+		nheInst = NheI.search(outSeq.seq)
+		for i in nheInst:
+			m = 1
+			j = (i - 2) % 3
+			k = i - 1
+			if j == 0:
+				k = k + 2
+				A = "NheI: T"+str(k)+"G"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"G"+outSeq.seq[k:]
+			elif j == 2:
+				k = k + 3
+				A = "NheI: A"+str(k)+"G"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"G"+outSeq.seq[k:]
+			elif j == 1:
+				k = k + 4
+				A = "NheI: G"+str(k)+"A"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"A"+outSeq.seq[k:]
+		nsiInst = NsiI.search(outSeq.seq)
+		for i in nsiInst:
+			m = 1
+			j = (i - 6) % 3
+			k = i - 5
+			if j == 0:
+				k = k + 5
+				A = "NsiI: T"+str(k)+"C"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"C"+outSeq.seq[k:]
+			elif j == 2:
+				k = k + 3
+				A = "NsiI: C"+str(k)+"T"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"T"+outSeq.seq[k:]
+			elif j == 1:
+				k = k + 4
+				A = "NsiI: A"+str(k)+"G"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"G"+outSeq.seq[k:]
+	if "BglB" in form:
+		bglInst = BglII.search(outSeq.seq)
+		for i in bglInst:
+			m = 1
+			j = (i - 2) % 3
+			k = i - 1
+			if j == 0:
+				k = k + 0
+				A = "BglII: AGA"+str(k)+"CGT"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"CGT"+outSeq.seq[k+2:]
+			elif j == 2:
+				k = k + 3
+				A = "BglII: T"+str(k)+"C"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"C"+outSeq.seq[k:]
+			elif j == 1:
+				k = k + 4
+				A = "BglII: C"+str(k)+"T"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"T"+outSeq.seq[k:]
+		bamInst = BamHI.search(outSeq.seq)
+		for i in bamInst:
+			m = 1
+			j = (i - 2) % 3
+			k = i - 1
+			if j == 0:
+				k = k + 2
+				A = "BamHI: A"+str(k)+"C"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"C"+outSeq.seq[k:]
+			elif j == 2:
+				k = k + 3
+				A = "BamHI: T"+str(k)+"C"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"C"+outSeq.seq[k:]
+			elif j == 1:
+				k = k + 4
+				A = "BamHI: C"+str(k)+"T"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"T"+outSeq.seq[k:]
+	if "BioB" in form:
+		sbfInst = SbfI.search(outSeq.seq)
+		for i in sbfInst:
+			m = 1
+			j = (i - 7) % 3
+			k = i - 6
+			if j == 0:
+				k = k + 2
+				A = "SbfI: T"+str(k)+"G"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"G"+outSeq.seq[k:]
+			elif j == 2:
+				k = k + 6
+				A = "SbfI: G"+str(k)+"A"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"A"+outSeq.seq[k:]
+			elif j == 1:
+				k = k + 7
+				A = "NsiI: G"+str(k)+"C"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"C"+outSeq.seq[k:]
+		notInst = NotI.search(outSeq.seq)
+		for i in notInst:
+			m = 1
+			j = (i - 3) % 3
+			k = i - 2
+			if j == 0:
+				k = k + 5
+				A = "NotI: C"+str(k)+"G"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"G"+outSeq.seq[k:]
+			elif j == 2:
+				k = k + 3
+				A = "NotI: G"+str(k)+"T"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"T"+outSeq.seq[k:]
+			elif j == 1:
+				k = k + 4
+				A = "NotI: C"+str(k)+"T"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"T"+outSeq.seq[k:]
+		apoInst = ApoI.search(outSeq.seq)
+		for i in apoInst:
+			m = 1
+			j = (i - 2) % 3
+			k = i - 1
+			if j == 0:
+				k = k + 2
+				A = "ApoI: A"+str(k)+"G"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"G"+outSeq.seq[k:]
+			elif j == 2:
+				k = k + 3
+				A = "ApoI: T"+str(k)+"C"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"C"+outSeq.seq[k:]
+			elif j == 1:
+				k = k + 4
+				A = "ApoI: T"+str(k)+"C"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"C"+outSeq.seq[k:]
+	if "MoClo" in form:
+		bbsInst = outSeq.seq.find("GAAGAC")
+		if bbsInst > 0:
+			m = 1
+			j = bbsInst % 3
+			k = bbsInst + 1
+			if j == 0:
+				k = k + 2
+				A = "BbsI: A"+str(k)+"G"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"G"+outSeq.seq[k:]
+			elif j == 2:
+				k = k + 3
+				A = "BbsI: G"+str(k)+"A"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"A"+outSeq.seq[k:]
+			elif j == 1:
+				k = k + 2
+				A = "BbsI: AGA"+str(k)+"CGT"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"CGT"+outSeq.seq[k+2:]
+			bbsInst = 0
+		bbsInst = outSeq.seq.find("GTCTTC")
+		if bbsInst > 0:
+			m = 1
+			j = bbsInst % 3
+			k = bbsInst + 1
+			if j == 0:
+				k = k + 2
+				A = "BbsI: C"+str(k)+"G"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"G"+outSeq.seq[k:]
+			elif j == 2:
+				k = k + 3
+				A = "BbsI: T"+str(k)+"C"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"C"+outSeq.seq[k:]
+			elif j == 1:
+				k = k + 4
+				A = "BbsI: T"+str(k)+"G"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"G"+outSeq.seq[k:]
+			bbsInst = 0
+		bsaInst = outSeq.seq.find("GGTCTC")
+		if bsaInst > 0:
+			bsaInst = 0
+			m = 1
+			j = bsaInst % 3
+			k = bsaInst + 1
+			if j == 0:
+				k = k + 5
+				A = "BsaI: C"+str(k)+"G"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"G"+outSeq.seq[k:]
+			elif j == 2:
+				k = k + 3
+				A = "BsaI: C"+str(k)+"G"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"G"+outSeq.seq[k:]
+			elif j == 1:
+				k = k + 2
+				A = "BsaI: TCT"+str(k)+"AGC"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"AGC"+outSeq.seq[k+2:]
+			bsaInst = 0
+		bsaInst = outSeq.seq.find("GAGACC")
+		if bsaInst > 0:
+			m = 1
+			j = bsaInst % 3
+			k = bsaInst + 1
+			if j == 0:
+				k = k + 2
+				A = "BsaI: G"+str(k)+"A"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"G"+outSeq.seq[k:]
+			elif j == 2:
+				k = k + 1
+				A = "BsaI: AGA"+str(k)+"CGT"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"CGT"+outSeq.seq[k+2:]
+			elif j == 1:
+				k = k + 4
+				A = "BsaI: C"+str(k)+"T"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"T"+outSeq.seq[k:]
+			bsaInst = 0
+		mlyInst = outSeq.seq.find("GAGTC")
+		if mlyInst > 0:
+			m = 1
+			j = mlyInst % 3
+			k = mlyInst + 1
+			if j == 0:
+				k = k + 2
+				A = "MlyI: G"+str(k)+"A"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"A"+outSeq.seq[k:]
+			elif j == 2:
+				k = k + 3
+				A = "MlyI: T"+str(k)+"C"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"C"+outSeq.seq[k:]
+			elif j == 1:
+				k = k + 4
+				A = "MlyI: C"+str(k)+"G"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"G"+outSeq.seq[k:]
+			mlyInst = 0
+		mlyInst = outSeq.seq.find("GACTC")
+		if mlyInst > 0:
+			m = 1
+			j = mlyInst % 3
+			k = mlyInst + 1
+			if j == 0:
+				k = k + 2
+				A = "MlyI: G"+str(k)+"T"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"T"+outSeq.seq[k:]
+			elif j == 2:
+				k = k + 3
+				A = "MlyI: T"+str(k)+"C"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"C"+outSeq.seq[k:]
+			elif j == 1:
+				k = k + 4
+				A = "MlyI: C"+str(k)+"G"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"G"+outSeq.seq[k:]
+			mlyInst = 0
+	if "chi" in form:
+		chiInst = outSeq.seq.find("GCTGGTGG")
+		if chiInst > 0:
+			m = 1
+			j = chiInst % 3
+			k = chiInst + 1
+			if j == 0:
+				k = k + 2
+				A = "Chi site: T"+str(k)+"G"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"G"+outSeq.seq[k:]
+			elif j == 2:
+				k = k + 6
+				A = "Chi site: G"+str(k)+"T"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"T"+outSeq.seq[k:]
+			elif j == 1:
+				k = k + 1
+				A = "Chi site: C"+str(k)+"T"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"T"+outSeq.seq[k:]
+			chiInst = 0
+		chiInst = outSeq.seq.find("CCACCAGC")
+		if chiInst > 0:
+			m = 1
+			j = chiInst % 3
+			k = chiInst + 1
+			if j == 0:
+				k = k + 2
+				A = "Chi site: A"+str(k)+"G"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"G"+outSeq.seq[k:]
+			elif j == 2:
+				k = k + 3
+				A = "Chi site: C"+str(k)+"T"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"T"+outSeq.seq[k:]
+			elif j == 1:
+				k = k + 7
+				A = "Chi site: C"+str(k)+"T"
+				changes.append(A)
+				outSeq.seq = outSeq.seq[:k-1]+"T"+outSeq.seq[k:]
+			chiInst = 0
+	if len(changes) > (len(outSeq.seq)/5):
+		m = 0
+		print "Error: Conflicting mutations <br>"
+		for i in changes:
+			print i
+			print '<br>'
+		sys.exit("Error: Mutation limit exceded <br></body></html>")
+#
+# Test the output Protein sequence vs. the input Protein Sequence
+#
+outProt=outSeq.seq.translate()
+inProt=recSeq.seq.translate()
+if str(outProt) == str(inProt):
+	print 'Success!<br><br>'
+if str(outProt) != str(inProt):
+	print "Error in silent mutation - contact administrator <br></body></html>"
+	sys.exit("Error in silent mutation")
+#
+#
+for i in changes:
+	print i
+	print '<br>'
+print '<br><hr>'
+#print outSeq.seq
+# outSeq.id = usergene
+outSeq.description = str(usergene)+" Synthetic Sequence<br>\n"
+print "<h4>Synthetic gene</h4>"
+print outSeq.format("fasta")
+print "<br><br><hr>"
+print "<h4>previous sequence</h4>"
+print record.format("fasta")
+print """
+</body>
+</html>
+"""
