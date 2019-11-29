@@ -175,15 +175,13 @@ RNASeqs = {
 	'rrlE': '',
 	'rrfE': '',
 	'rrsE': '',
-	'rrlF': '',
-	'rrfF': '',
-	'rrsF': '',
 	'rrlG': '',
 	'rrfG': '',
 	'rrsG': '',
 	'rrlH': '',
 	'rrfH': '',
 	'rrsH': '',
+	'rnpB': 'GAAGCTGACCAGACAGTCGCCGCTTCGTCGTCGTCCTCTTCGGGGGAGACGGGCGGAGGGGAGGAAAGTCCGGGCTCCATAGGGCAGGGTGCCAGGTAACGCCTGGGGGGGAAACCCACGACCAGTGCAACAGAGAGCAAACCGCCGATGGCCCGCGCAAGCGGGATCAGGTAAGGGTGAAAGGGTGCGGTAAGAGCGCACCGCGCGGCTGGTAACAGTCCGTGGCACGGTAAACTCCACCCGGAGCAAGGCCAAATAGGGGTTCATAAGGTACGGCCCGTACTGAACCCGGGTAGGCTGCTTGAGCCAGTGAGCGATTGCTGGCCTAGATGAATGACTGTCCACGACAGAACCCGGCTTATCGGTCAGTTTCACCT',
 	'cysT': 'GGCGCGTTAACAAAGCGGTTATGTAGCGGATTGCAAATCCGTCTAGTCCGGTTCGACTCCGGAACGCGCCTCCA',
 	'aspT': 'GGAGCGGTAGTTCAGTCGGTTAGAATACCTGCCTGTCACGCAGGGGGTCGCGGGTTCGAGTCCCGTCCGTTCCGCCA',
 	'aspU': 'GGAGCGGTAGTTCAGTCGGTTAGAATACCTGCCTGTCACGCAGGGGGTCGCGGGTTCGAGTCCCGTCCGTTCCGCCA',
@@ -268,12 +266,14 @@ RNASeqs = {
 	'tyrU': 'GGTGGGGTTCCCGAGCGGCCAAAGGGAGCAGACTGTAAATCTGCCGTCACAGACTTCGAAGGTTCGAATCCTTCCCCCACCACCA',
 	'tyrV': 'GGTGGGGTTCCCGAGCGGCCAAAGGGAGCAGACTGTAAATCTGCCGTCATCGACTTCGAAGGTTCGAATCCTTCCCCCACCACCA'
 }
+muts=[]
 #
 # Meat and potatoes
 #
 def refactor( gName, inSeq, stnds, minCodon ):
 	"""Refactor sequences: outSeq is output sequence, record is input, changes is mutations"""
 	if gName in RNASeqs:
+		changes=[]
 		m = 0
 		mySeq=SeqRecord(Seq(inSeq, IUPAC.unambiguous_dna))
 	else:
@@ -1222,19 +1222,7 @@ def refactor( gName, inSeq, stnds, minCodon ):
 				print(i)
 			# print(recSeq.seq)
 			sys.exit("Error: Mutation limit exceded")
-#
-# Test the output Protein sequence vs. the input Protein Sequence
-#
-	# fOut=open('Mutations.txt','a')
-	# outStr="["
-	# for i in changes:
-	# 	outStr=outStr+"'"+i+"',"
-	# if outStr[:-1]==',':
-	# 	outStr=outStr[:-1]+"]\n"
-	# else:
-	# 	outStr=outStr+"]\n"
-	# fOut.write(outStr)
-	# fOut.close()
+	muts.append(changes)
 	outSeq=''
 	for l in range(len(mySeq.seq)):
 		outSeq=outSeq+mySeq.seq[l];
@@ -1276,7 +1264,7 @@ for i in mainlist:
 promMuts=[]
 
 def mutatePromoters(gName, inSeq):
-	"""Mutates the known promoters by shuffling the codon if needed"""
+	"""Mutates known E. coli promoters by shuffling the codon if needed"""
 	outSeq=inSeq
 	if gName in promIn:
 		i=0
@@ -1289,7 +1277,18 @@ def mutatePromoters(gName, inSeq):
 			i=i+1
 	return outSeq
 
+def tlCheck(inSeq, outSeq):
+	"""Checks the translation of the engineered sequence against the wild-type sequence"""
+	myInSeq=SeqRecord(Seq(inSeq, IUPAC.unambiguous_dna))
+	myOutSeq=SeqRecord(Seq(outSeq, IUPAC.unambiguous_dna))
+	if myInSeq.translate()==myOutSeq.translate():
+		successFlag=1
+	else:
+		successFlag=0
+	return successFlag
+
 def statistics():
+	"""Runs edit statistics and codon usage"""
 	# fOut=open('CodonUsageTable.txt','w')
 	# fOut.write(json.dumps(CodonCountBefore))
 	# fOut.write("\n\n")
@@ -1303,10 +1302,10 @@ def statistics():
 	usageB=[]
 	muts=[]
 	print(len(promMuts))
-	# fIn=open('Mutations.txt','r')
-	# for line in fIn:
-	# 	muts.append(line)
-	# fIn.close();
+	fIn=open('Mutations.txt','w')
+	for line in muts:
+		fIn.write(line+"\n");
+	fIn.close();
 	for i in CodonCountAfter:
 		codons=codons+(i,)
 		usageA.append(CodonCountAfter[i])
@@ -1323,34 +1322,4 @@ def statistics():
 	plt.legend()
 	plt.tight_layout()
 	plt.show()
-
-	# data to plot
-	# n_groups = 4
-	# means_frank = (90, 55, 40, 65)
-	# means_guido = (85, 62, 54, 20)
-	#
-	# # create plot
-	# fig, ax = plt.subplots()
-	# index = np.arange(n_groups)
-	# bar_width = 0.35
-	# opacity = 0.8
-	#
-	# rects1 = plt.bar(index, means_frank, bar_width,
-	# alpha=opacity,
-	# color='b',
-	# label='Frank')
-	#
-	# rects2 = plt.bar(index + bar_width, means_guido, bar_width,
-	# alpha=opacity,
-	# color='g',
-	# label='Guido')
-	#
-	# plt.xlabel('Person')
-	# plt.ylabel('Scores')
-	# plt.title('Scores by person')
-	# plt.xticks(index + bar_width, ('A', 'B', 'C', 'D'))
-	# plt.legend()
-	#
-	# plt.tight_layout()
-	# plt.show()
 	return

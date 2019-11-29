@@ -1,0 +1,22 @@
+EcoRI: 506
+XbaI: 19
+SpeI: 32
+PstI: 915
+NotI: 19
+MfeI: 814
+ApoI: 3854
+AvrII: 5
+NheI: 127
+NsiI: 643
+XhoI: 186
+NdeI: 538
+BglII: 624
+BamHI: 451
+BbsI: 1695
+BsaI: 242
+MlyI: 2826
+BsmBI: 1524
+BtgZI: 4945
+Chi Sites: 971
+Starts: 393
+Stops: 1462

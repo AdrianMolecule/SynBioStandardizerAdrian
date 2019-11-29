@@ -36,6 +36,7 @@ from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 from Bio import SeqIO
 import genestand2
+import zeroRPC
 #
 # Open file to read in fasta sequences for modified and original records
 #
