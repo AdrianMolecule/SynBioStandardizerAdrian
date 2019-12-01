@@ -9,7 +9,7 @@
 # modification, are permitted provided that the following conditions are met:
 #
 # 1. Redistributions of source code must retain the above copyright notice, this
-#    list of conditions and the following disclaimer. 
+#    list of conditions and the following disclaimer.
 # 2. Redistributions in binary form must reproduce the above copyright notice,
 #    this list of conditions and the following disclaimer in the documentation
 #    and/or other materials provided with the distribution.
@@ -26,7 +26,7 @@
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 # The views and conclusions contained in the software and documentation are those
-# of the authors and should not be interpreted as representing official policies, 
+# of the authors and should not be interpreted as representing official policies,
 # either expressed or implied, of Uppsala University.
 #
 #####
@@ -35,47 +35,62 @@ import sys
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 from Bio import SeqIO
-import genestand
+import zerorpc
 #
 # Open file to read in fasta sequences for modified and original records
 #
-handle = open("sequence.txt", "rU")
-records = list(SeqIO.parse(handle, "fasta"))
-handle.close()
-handle = open("sequence.txt", "rU")
-recsO = list(SeqIO.parse(handle, "fasta"))
-handle.close()
-muts_handle = open("Mutations.txt", "a")
+fName=sys.argv[1]
+fIn=open(fName,'r')
+geneName=[]
+geneSeqIn=[]
+geneSeqOut={}
+genes=[]
+for line in fIn:
+	genes.append(line);
+for i in range(0,int(len(genes)/2)):
+	geneName.append(genes[int(i*2)].split('>')[1].rstrip());
+	geneSeqIn.append(genes[int(i*2+1)].rstrip());
+fIn.close()
+genes=[];
 #
 # Start your engines
 #
 stnds = ['N','BioB','BglB','MoClo','GB','Chi']
 SynthRecs = []
 q = 0
-for p in records:
-	outSeq = copy.deepcopy(records[q])
-	recSeq = copy.deepcopy(recsO[q])
+c = zerorpc.Client()
+c.connect("tcp://192.168.1.180:4242")
+for p in geneSeqIn:
 #
-# Look for: non-ATG start codons, non-TAA stop codons, 
+# Look for: non-ATG start codons, non-TAA stop codons,
 #           NdeI:        NdeI
 #           BioBrick:    EcoRI, SpeI, XbaI, PstI, mfeI, avrII, NheI, NsiI, SbfI, NotI, ApoI
-#           BglBrick:    EcoRI, XhoI, BglII, BamHI, 
+#           BglBrick:    EcoRI, XhoI, BglII, BamHI,
 #           MoClo:       BbsI, BsaI, MlyI
 #           GoldenBraid: BsmI, BtgZI
 #           Chi sites
 # Then makes non-conflicting point mutations to highest allowed codon usage
 #
-	changes = []
-	genestand.refactor(outSeq, recSeq, changes, stnds)
-	SynthRecs.append(copy.deepcopy(outSeq))
-	muts_handle.write(str(changes)+'\n')
+	if (((p[:3]=='GTG') or (p[:3]=='TTG') or (p[:3]=='ATT')) and ((p[-3:]=='TAA') or (p[-3:]=='TGA') or (p[-3:]=='TAG'))):
+		p='ATG'+p[3:]
+	tmpGeneSeqOut=c.MinimizeCodonUsage(p)
+	tmpGeneSeqOut=c.refactor(geneName[q], p, stnds)
+	tmpGeneSeqOut=c.mutatePromoters(tmpGeneSeqOut)
+	if (c.tlCheck(p,tmpGeneSeqOut)):
+		geneSeqOut[geneName[q]]=tmpGeneSeqOut
+	else:
+		"There was an error in the translation check"
+		geneSeqOut[geneName[q]]="Error in translation check"
 	q=q+1
+	print(str(q)+'/'+str(len(geneName)));
 #
 # Print results
 #
-print 'Success!'
-muts_handle.close()
+print('Success!')
+#
+# genestand2.statistics();
+#
 outFile = "SyntheticSequence.txt"
 output_handle = open(outFile, "w")
-SeqIO.write(SynthRecs, output_handle, "fasta")
-output_handle.close()
+for i in geneSeqOut:
+	output_handle.write('>'+i+"\n"+geneSeqOut[i]+"\n\n")

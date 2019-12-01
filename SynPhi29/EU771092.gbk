@@ -1,0 +1,957 @@
+ID   EU771092; SV 1; linear; genomic DNA; STD; VRL; 19282 BP.
+XX
+AC   EU771092;
+XX
+DT   27-JUN-2008 (Rel. 96, Created)
+DT   27-JUN-2008 (Rel. 96, Last updated, Version 1)
+XX
+DE   Bacillus phage phi29, complete genome.
+XX
+KW   .
+XX
+OS   Bacillus virus phi29
+OC   Viruses; Caudovirales; Podoviridae; Picovirinae; Salasvirus.
+XX
+RN   [1]
+RP   1-19282
+RA   Villegas A.P., Lingohr E.J., Ceyssens P.-J., Kropinski A.M.;
+RT   ;
+RL   Submitted (29-MAY-2008) to the INSDC.
+RL   Laboratory for Foodborne Zoonoses, Public Health Agency of Canada, 110
+RL   Stone Road West, Guelph, Ontario N1G 3W4, Canada
+XX
+DR   MD5; 6d01d86a07744ee5c9f32c0614c102e3.
+DR   EuropePMC; PMC3915000; 24505243.
+DR   EuropePMC; PMC4197329; 25280881.
+DR   EuropePMC; PMC4464726; 25547158.
+DR   RFAM; RF00044; Phage_pRNA.
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..19282
+FT                   /organism="Bacillus virus phi29"
+FT                   /host="Bacillus subtilis"
+FT                   /mol_type="genomic DNA"
+FT                   /db_xref="taxon:10756"
+FT   repeat_region   1..6
+FT                   /rpt_type=LONG_TERMINAL_REPEAT
+FT                   /note="left terminal inverted repeat unit"
+FT   gene            complement(265..360)
+FT                   /gene="0.2"
+FT   CDS             complement(265..360)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="0.2"
+FT                   /product="hypothetical protein"
+FT                   /note="similar to CAA24474.1 unnamed protein product
+FT                   Bacillus phage phi29"
+FT                   /db_xref="UniProtKB/TrEMBL:Q38500"
+FT                   /protein_id="ACE96018.1"
+FT                   /translation="MFDNYYRVCYNGSINGTVLPLSCVCWGLNPD"
+FT   regulatory      complement(328..356)
+FT                   /gene="0.2"
+FT                   /note="promoter A1; early transcription"
+FT                   /regulatory_class="promoter"
+FT   gene            complement(367..510)
+FT                   /gene="0.4"
+FT   CDS             complement(367..510)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="0.4"
+FT                   /product="hypothetical protein"
+FT                   /note="similar to Bacillus phage PZA unknown protein
+FT                   product of ORF0 NP_040723"
+FT                   /db_xref="UniProtKB/TrEMBL:Q38501"
+FT                   /protein_id="ACE96019.1"
+FT                   /translation="MKRAELEEHIANMFKDGTIKLQVHPFGTNGVHLIVEINDQIVLEW
+FT                   EN"
+FT   gene            complement(527..703)
+FT                   /gene="0.6"
+FT   CDS             complement(527..703)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="0.6"
+FT                   /product="hypothetical protein"
+FT                   /note="similar to NP_040722.1 gene 1A product Bacillus
+FT                   phage PZA"
+FT                   /db_xref="UniProtKB/TrEMBL:Q38502"
+FT                   /protein_id="ACE96020.1"
+FT                   /translation="MSYLVTIFSINDNGVVRRYDTTARSRTDAASVLIKYKAPRGYKFD
+FT                   RFELSREKTIFDI"
+FT   gene            complement(700..870)
+FT                   /gene="0.8"
+FT   CDS             complement(700..870)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="0.8"
+FT                   /product="hypothetical protein"
+FT                   /note="similar to NP_040721.1 gene 1B product Bacillus
+FT                   phage PZA"
+FT                   /db_xref="GOA:Q38503"
+FT                   /db_xref="PDB:2LE2"
+FT                   /db_xref="PDB:3ZOQ"
+FT                   /db_xref="UniProtKB/Swiss-Prot:Q38503"
+FT                   /protein_id="ACE96021.1"
+FT                   /translation="MVQNDFVDSYDVTMLLQDDDGKQYYEYHKGLSLSDFEVLYGNTAD
+FT                   EIIKLRLDKVL"
+FT   gene            complement(857..1117)
+FT                   /gene="1"
+FT   CDS             complement(857..1117)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="1"
+FT                   /product="hypothetical protein"
+FT                   /function="involved in DNA replication"
+FT                   /note="similar to NP_040720.1 gene 1C product Bacillus
+FT                   phage PZA; partially dispensible"
+FT                   /db_xref="GOA:P03679"
+FT                   /db_xref="InterPro:IPR016408"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P03679"
+FT                   /protein_id="ACE96022.1"
+FT                   /translation="MGKIFDQEKRLEGTWKNSKWGNQGIIAPVDGDLKMIDLELEKKMT
+FT                   KLEHENKLMKNALYELSRMENNDYATWVIKVLFGGAPHGAK"
+FT   gene            complement(1145..2863)
+FT                   /gene="2"
+FT   CDS             complement(1145..2863)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="2"
+FT                   /product="DNA polymerase"
+FT                   /note="similar to NP_040719.1 gene 2 product Bacillus phage
+FT                   PZA; NP_690635.1 DNA polymerase Bacillus phage B103,
+FT                   NP_073685.1 DNA polymerase Bacillus phage GA-1"
+FT                   /db_xref="GOA:P03680"
+FT                   /db_xref="InterPro:IPR004868"
+FT                   /db_xref="InterPro:IPR006172"
+FT                   /db_xref="InterPro:IPR012337"
+FT                   /db_xref="InterPro:IPR014416"
+FT                   /db_xref="InterPro:IPR017964"
+FT                   /db_xref="InterPro:IPR023211"
+FT                   /db_xref="InterPro:IPR036397"
+FT                   /db_xref="PDB:1XHX"
+FT                   /db_xref="PDB:1XHZ"
+FT                   /db_xref="PDB:1XI1"
+FT                   /db_xref="PDB:2EX3"
+FT                   /db_xref="PDB:2PY5"
+FT                   /db_xref="PDB:2PYJ"
+FT                   /db_xref="PDB:2PYL"
+FT                   /db_xref="PDB:2PZS"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P03680"
+FT                   /protein_id="ACE96023.1"
+FT                   /translation="MPRKMYSCDFETTTKVEDCRVWAYGYMNIEDHSEYKIGNSLDEFM
+FT                   AWVLKVQADLYFHNLKFDGAFIINWLERNGFKWSADGLPNTYNTIISRMGQWYMIDICL
+FT                   GYKGKRKIHTVIYDSLKKLPFPVKKIAKDFKLTVLKGDIDYHKERPVGYKITPEEYAYI
+FT                   KNDIQIIAEALLIQFKQGLDRMTAGSDSLKGFKDIITTKKFKKVFPTLSLGLDKEVRYA
+FT                   YRGGFTWLNDRFKEKEIGEGMVFDVNSLYPAQMYSRLLPYGEPIVFEGKYVWDEDYPLH
+FT                   IQHIRCEFELKEGYIPTIQIKRSRFYKGNEYLKSSGGEIADLWLSNVDLELMKEHYDLY
+FT                   NVEYISGLKFKATTGLFKDFIDKWTYIKTTSEGAIKQLAKLMLNSLYGKFASNPDVTGK
+FT                   VPYLKENGALGFRLGEEETKDPVYTPMGVFITAWARYTTITAAQACYDRIIYCDTDSIH
+FT                   LTGTEIPDVIKDIVDPKKLGYWAHESTFKRAKYLRQKTYIQDIYMKEVDGKLVEGSPDD
+FT                   YTDIKFSVKCAGMTDKIKKEVTFENFKVGFSRKMKPKPVQVPGGVVLVDDTFTIK"
+FT   gene            complement(2886..3686)
+FT                   /gene="3"
+FT   CDS             complement(2886..3686)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="3"
+FT                   /product="terminal protein"
+FT                   /note="similar to NP_040718.1 gene 3 product Bacillus phage
+FT                   PZA, NP_690636.1 terminal protein Bacillus phage B103"
+FT                   /db_xref="GOA:P03681"
+FT                   /db_xref="InterPro:IPR008770"
+FT                   /db_xref="InterPro:IPR037216"
+FT                   /db_xref="PDB:2EX3"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P03681"
+FT                   /protein_id="ACE96024.1"
+FT                   /translation="MARSPRIRIKDNDKAEYARLVKNTKAKIARTKKKYGVDLTAEIDI
+FT                   PDLDSFETRAQFNKWKEQASSFTNRANMRYQFEKNAYGVVASKAKIAEIERNTKEVQRL
+FT                   VDEKIKAMKDKEYYAGGKPQGTIEQRIAMTSPAHVTGINRPHDFDFSKVRSYSRLRTLE
+FT                   ESMEMRTDPQYYEKKMIQLQLNFIKSVEGSFNSFDAADELIEELKKIPPDDFYELFLRI
+FT                   SEISFEEFDSEGNTVENVEGNVYKILSYLEQYRRGDFDLSLKGF"
+FT   gene            complement(3575..3952)
+FT                   /gene="4"
+FT   CDS             complement(3575..3952)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="4"
+FT                   /product="late gene transcriptional activator"
+FT                   /note="similar to NP_040717.1 gene 4 product Bacillus phage
+FT                   PZA, NP_690637.1 late genes activator Bacillus phage B103"
+FT                   /db_xref="GOA:P03682"
+FT                   /db_xref="InterPro:IPR008771"
+FT                   /db_xref="InterPro:IPR038246"
+FT                   /db_xref="PDB:2FIO"
+FT                   /db_xref="PDB:2FIP"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P03682"
+FT                   /protein_id="ACE96025.1"
+FT                   /translation="MPKTQRGIYHNLKESEYVASNTDVTFFFSSELYLNKFLDGYQEYR
+FT                   KKFNKKIERVAVTPWNMDMLADITFYSEVEKRGFHAWLKGDNATWREVHVYALRIMTKP
+FT                   NTLDWSRIQKPRLRERRKSMV"
+FT   gene            complement(3971..4345)
+FT                   /gene="5"
+FT   CDS             complement(3971..4345)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="5"
+FT                   /product="single stranded DNA-binding protein"
+FT                   /note="SSB; similar to NP_040716.1 gene 5A product Bacillus
+FT                   phage PZA, NP_690638.1 SSB Bacillus phage B103"
+FT                   /db_xref="GOA:Q38504"
+FT                   /db_xref="InterPro:IPR035408"
+FT                   /db_xref="UniProtKB/Swiss-Prot:Q38504"
+FT                   /protein_id="ACE96026.1"
+FT                   /translation="MENTNIVKATFDTETLEGQIKIFNAQTGGGQSFKNLPDGTIIEAN
+FT                   AIAQYKQVSDTYGDAKEETVTTIFAADGSLYSAISKTVAEAASDLIDLVTRHKLETFKV
+FT                   KVVQGTSSKGNVFFSLQLSL"
+FT   gene            complement(4410..4610)
+FT                   /gene="5.5"
+FT   CDS             complement(4410..4610)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="5.5"
+FT                   /product="hypothetical protein"
+FT                   /note="similar to NP_040715.1 unknown protein Bacillus
+FT                   phage PZA"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P03683"
+FT                   /protein_id="ACE96027.1"
+FT                   /translation="MMETQEKVLVLVGALFINTFNLNYKSIDLTHDSEQAYGFKDKWEA
+FT                   QKVAANVGGQVVIRTTSFKIV"
+FT   gene            complement(4607..4921)
+FT                   /gene="6"
+FT   CDS             complement(4607..4921)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="6"
+FT                   /product="double-stranded DNA-binding protein p6"
+FT                   /function="activates DNA replication; represses
+FT                   transcription from promoters C2, A2c and A2b; activates
+FT                   transcription fromn promoter A3"
+FT                   /note="similar to NP_040714.1 gene 6 product Bacillus phage
+FT                   PZA"
+FT                   /db_xref="GOA:P03685"
+FT                   /db_xref="InterPro:IPR035188"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P03685"
+FT                   /protein_id="ACE96028.1"
+FT                   /translation="MAKMMQREITKTTVNVAKMVMVDGEVQVEQLPSETFVGNLTMEQA
+FT                   QWRMKRKYKGEPVQVVSVEPNTEVYELPVEKFLEVATVRVEKDEDQEEQTEAPEEQVAE
+FT                   "
+FT   regulatory      complement(4978..5006)
+FT                   /note="promoter A2c; early transcription"
+FT                   /regulatory_class="promoter"
+FT   protein_bind    5095..5121
+FT                   /bound_moiety="p4 protein"
+FT                   /note="activates transcription of late genes from A3
+FT                   promoter; represses transcription fom early promoter A2c"
+FT   gene            5222..5518
+FT                   /gene="7"
+FT   CDS             5222..5518
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="7"
+FT                   /product="scaffolding protein"
+FT                   /function="head morphogenesis"
+FT                   /note="similar to NP_040724.1 head morphogenesis protein
+FT                   Bacillus phage PZA, NP_690640.1 head morphogenesis protein
+FT                   Bacillus phage B103"
+FT                   /db_xref="GOA:P13848"
+FT                   /db_xref="InterPro:IPR024374"
+FT                   /db_xref="InterPro:IPR038032"
+FT                   /db_xref="PDB:1NO4"
+FT                   /db_xref="PDB:1NOH"
+FT                   /db_xref="PDB:3MTU"
+FT                   /db_xref="PDB:3OA7"
+FT                   /db_xref="PDB:4IFF"
+FT                   /db_xref="PDB:4XA1"
+FT                   /db_xref="PDB:4XA3"
+FT                   /db_xref="PDB:4XA6"
+FT                   /db_xref="PDB:5CJ1"
+FT                   /db_xref="PDB:5WJB"
+FT                   /db_xref="PDB:5WLQ"
+FT                   /db_xref="PDB:5WME"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P13848"
+FT                   /protein_id="ACE96029.1"
+FT                   /translation="MPLKPEEHEDILNKLLDPELAQSERTEALQQLRVNYGSFVSEYND
+FT                   LTKSHEKLAAEKDDLIVSNSKLFRQIGLTDKQEEDHKKADISETITIEDLEAK"
+FT   gene            5549..6895
+FT                   /gene="8"
+FT   CDS             5549..6895
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="8"
+FT                   /product="major head protein"
+FT                   /note="similar to NP_040725.1 major head protein Bacillus
+FT                   phage PZA, NP_690641.1 major head protein Bacillus phage
+FT                   B103"
+FT                   /db_xref="GOA:P13849"
+FT                   /db_xref="InterPro:IPR003343"
+FT                   /db_xref="PDB:6QVK"
+FT                   /db_xref="PDB:6QYD"
+FT                   /db_xref="PDB:6QZ0"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P13849"
+FT                   /protein_id="ACE96030.1"
+FT                   /translation="MRITFNDVKTSLGITESYDIVNAIRNSQGDNFKSYVPLATANNVA
+FT                   EVGAGILINQTVQNDFITSLVDRIGLVVIRQVSLNNPLKKFKKGQIPLGRTIEEIYTDI
+FT                   TKEKQYDAEEAEQKVFEREMPNVKTLFHERNRQGFYHQTIQDDSLKTAFVSWGNFESFV
+FT                   SSIINAIYNSAEVDEYEYMKLLVDNYYSKGLFTTVKIDEPTSSTGALTEFVKKMRATAR
+FT                   KLTLPQGSRDWNSMAVRTRSYMEDLHLIIDADLEAELDVDVLAKAFNMNRTDFLGNVTV
+FT                   IDGFASTGLEAVLVDKDWFMVYDNLHKMETVRNPRGLYWNYYYHVWQTLSVSRFANAVA
+FT                   FVSGDVPAVTQVIVSPNIAAVKQGGQQQFTAYVRATDAKDHKVVWSVEGGSTGTAITGD
+FT                   GLLSVSGNEDNQLTVKATVDIGTEDKPKLVVGEAVVSIRPNNASGGAQA"
+FT   gene            6895..7737
+FT                   /gene="8.5"
+FT   CDS             6895..7737
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="8.5"
+FT                   /product="head fiber protein"
+FT                   /note="similar to NP_040726.1 head fiber protein Bacillus
+FT                   phage PZA"
+FT                   /db_xref="GOA:B3VMP4"
+FT                   /db_xref="InterPro:IPR022741"
+FT                   /db_xref="PDB:3QC7"
+FT                   /db_xref="PDB:6QVK"
+FT                   /db_xref="PDB:6QYD"
+FT                   /db_xref="PDB:6QYY"
+FT                   /db_xref="PDB:6QZ0"
+FT                   /db_xref="UniProtKB/Swiss-Prot:B3VMP4"
+FT                   /protein_id="ACE96031.1"
+FT                   /translation="MMVSFTARAKSNVMAYRLLAYSQGDDIIEISHAAENTIPDYVAVK
+FT                   DVDKGDLTQVNMYPLAAWQVIAGSDIKVGDNLTTGKDGTAVPTDDPSTVFGYAVEEAQE
+FT                   GQLVTLVISRSKEISIEVDDIKDAGDTGKRLLKINTPSGARNIIIENEDAKALINGETT
+FT                   NTNKKNLQDLLFSDGNVKAFLQATTTDENKTALQQLLVSNADVLGLLSGNPTSDNKINL
+FT                   RTMIGAGVPYSLPAATTTTLGGVKKGAAVTASTATDVATAVKDLNSLITVLKNAGIIS"
+FT   gene            7751..9550
+FT                   /gene="9"
+FT   CDS             7751..9550
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="9"
+FT                   /product="tail protein"
+FT                   /note="similar to NP_040727.1 tail protein Bacillus phage
+FT                   PZA 7, NP_690643.1 tail protein Bacillus phage B103"
+FT                   /db_xref="GOA:P04331"
+FT                   /db_xref="InterPro:IPR031772"
+FT                   /db_xref="PDB:5FB4"
+FT                   /db_xref="PDB:5FB5"
+FT                   /db_xref="PDB:5FEI"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P04331"
+FT                   /protein_id="ACE96032.1"
+FT                   /translation="MAYVPLSGTNVRILADVPFSNDYKNTRWFTSSSNQYNWFNSKSRV
+FT                   YEMSKVTFMGFRENKPYVSVSLPIDKLYSASYIMFQNADYGNKWFYAFVTELEFKNSAV
+FT                   TYVHFEIDVLQTWMFDIKFQESFIVREHVKLWNDDGTPTINTIDEGLSYGSEYDIVSVE
+FT                   NHKPYDDMMFLVIISKSIMHGTPGEEESRLNDINASLNGMPQPLCYYIHPFYKDGKVPK
+FT                   TYIGDNNANLSPIVNMLTNIFSQKSAVNDIVNMYVTDYIGLKLDYKNGDKELKLDKDMF
+FT                   EQAGIADDKHGNVDTIFVKKIPDYEALEIDTGDKWGGFTKDQESKLMMYPYCVTEITDF
+FT                   KGNHMNLKTEYINNSKLKIQVRGSLGVSNKVAYSVQDYNADSALSGGNRLTASLDSSLI
+FT                   NNNPNDIAILNDYLSAYLQGNKNSLENQKSSILFNGIMGMIGGGISAGASAAGGSALGM
+FT                   ASSVTGMTSTAGNAVLQMQAMQAKQADIANIPPQLTKMGGNTAFDYGNGYRGVYVIKKQ
+FT                   LKAEYRRSLSSFFHKYGYKINRVKKPNLRTRKAFNYVQTKDCFISGDINNNDLQEIRTI
+FT                   FDNGITLWHTDNIGNYSVENELR"
+FT   gene            9555..10484
+FT                   /gene="10"
+FT   CDS             9555..10484
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="10"
+FT                   /product="connector"
+FT                   /note="upper collar protein; similar to NP_040728.1 upper
+FT                   collar protein Bacillus phage PZA, NP_690644.1 upper collar
+FT                   protein Bacillus phage B103"
+FT                   /db_xref="GOA:P04332"
+FT                   /db_xref="InterPro:IPR008016"
+FT                   /db_xref="InterPro:IPR036199"
+FT                   /db_xref="PDB:1FOU"
+FT                   /db_xref="PDB:1H5W"
+FT                   /db_xref="PDB:1IJG"
+FT                   /db_xref="PDB:1JNB"
+FT                   /db_xref="PDB:1L4P"
+FT                   /db_xref="PDB:1VRI"
+FT                   /db_xref="PDB:1VRJ"
+FT                   /db_xref="PDB:1YWE"
+FT                   /db_xref="PDB:6QX7"
+FT                   /db_xref="PDB:6QYJ"
+FT                   /db_xref="PDB:6QYM"
+FT                   /db_xref="PDB:6QZ9"
+FT                   /db_xref="PDB:6QZF"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P04332"
+FT                   /protein_id="ACE96033.1"
+FT                   /translation="MARKRSNTYRSINEIQRQKRNRWFIHYLNYLQSLAYQLFEWENLP
+FT                   PTINPSFLEKSIHQFGYVGFYKDPVISYIACNGALSGQRDVYNQATVFRAASPVYQKEF
+FT                   KLYNYRDMKEEDMGVVIYNNDMAFPTTPTLELFAAELAELKEIISVNQNAQKTPVLIRA
+FT                   NDNNQLSLKQVYNQYEGNAPVIFAHEALDSDSIEVFKTDAPYVVDKLNAQKNAVWNEMM
+FT                   TFLGIKNANLEKKERMVTDEVSSNDEQIESSGTVFLKSREEACEKINELYGLNVKVKFR
+FT                   YDIVEQMRRELQQIENVSRGTSDGETNE"
+FT   gene            10477..11358
+FT                   /gene="11"
+FT   CDS             10477..11358
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="11"
+FT                   /product="lower collar protein"
+FT                   /note="similar to NP_040729.1 lower collar protein Bacillus
+FT                   phage PZA, NP_690645.1 lower collar protein Bacillus phage
+FT                   B103"
+FT                   /db_xref="GOA:P68930"
+FT                   /db_xref="PDB:6QZ9"
+FT                   /db_xref="PDB:6QZF"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P68930"
+FT                   /protein_id="ACE96034.1"
+FT                   /translation="MSSYTMQLRTYIEMWSQGETGLSTAEKIEKGRPKLFDFNYPIFDE
+FT                   SYRTIFETHFIRNFYMREIGFETEGLFKFHLETWLMINMPYFNKLFESELIKYDPLENT
+FT                   RVGVKSNTKNDTDRNDNRDVKQDLTSNGTSSTDAKQNDTSKTTGNEKSSGSGSITDDNF
+FT                   KRDLNADTADDRLQLTTKDGEGVLEYASQIEEHNENKKRDTKTSNTTDTTSNTTGTSTL
+FT                   DSDSKTSNKANTTSNDKLNSQINSVEDYIEDRVGKIGTQSYARLVMDYREALLRIEQRI
+FT                   FNEMQELFMLVY"
+FT   gene            11371..13935
+FT                   /gene="12"
+FT   CDS             11371..13935
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="12"
+FT                   /product="preneck appendage protein"
+FT                   /note="similar to NP_040730.1 pre-neck appendage protein
+FT                   Bacillus phage PZA, NP_690646.1 pre-neck appendage protein
+FT                   Bacillus phage B103"
+FT                   /db_xref="GOA:P20345"
+FT                   /db_xref="InterPro:IPR006626"
+FT                   /db_xref="InterPro:IPR011050"
+FT                   /db_xref="InterPro:IPR012334"
+FT                   /db_xref="InterPro:IPR021865"
+FT                   /db_xref="InterPro:IPR024535"
+FT                   /db_xref="PDB:3GQ7"
+FT                   /db_xref="PDB:3GQ8"
+FT                   /db_xref="PDB:3GQ9"
+FT                   /db_xref="PDB:3GQA"
+FT                   /db_xref="PDB:3GQH"
+FT                   /db_xref="PDB:3GQK"
+FT                   /db_xref="PDB:3SUC"
+FT                   /db_xref="PDB:6QZ9"
+FT                   /db_xref="PDB:6QZF"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P20345"
+FT                   /protein_id="ACE96035.1"
+FT                   /translation="MSTKPELKRFEQFGEMMVQLYERYLPTAFDESLTLLEKMNKIIHY
+FT                   LNEIGKVTNELIEEWNKVMEWILNDGLEDLVKETLERWYEEGKFADLVIQVIDELKQFG
+FT                   VSVKTYGAKGDGVTDDIRAFEKAIESGFPVYVPYGTFMVSRGIKLPSNTVLTGAGKRNA
+FT                   VIKFMDSVGRGESLMYNENVTTGNENIFLSSFTLDGNNKRLGQGISGIGGSRESNLSIR
+FT                   ACHNVYIRDIEAVDCTLHGIDITCGGLDYPYLGDGTTAPNPSENIWIENCEATGFGDDG
+FT                   ITTHHSQYINILNCYSHDPRLTANCNGFEIDDGSRHVVLSNNRSKGCYGGIEIKAHGDA
+FT                   PAAYNISINGHMSVEDVRSYNFRHIGHHAATAPQSVSAKNIVASNLVSIRPNNKRGFQD
+FT                   NATPRVLAVSAYYGVVINGLTGYTDDPNLLTETVVSVQFRARNCSLNGVVLTGFSNSEN
+FT                   GIYVIGGSRGGDAVNISNVTLNNSGRYGVSIGSGIENVSITNISGIGDGINSPVALVST
+FT                   INSNPEISGLSSIGYPTVARVAGTDYNDGLTLFNGAFRASTTSSGKIHSEGFIMGSTSG
+FT                   CEASVSKSGVLTSSSSKTSSERSLIAGSSTSEAKGTYNTILGSLGAVADEKFAALISAS
+FT                   QSRASGNHNLILSSYGINTTGSYKVNGGFEKINWELDSLNGRIKARDTVTGGNTWSDFA
+FT                   EYFESLDGQVIETGYLVTLEKGKIRKAEKGEKIIGVISETAGFVLGESSFEWQGAVLKN
+FT                   EFGGIIYEEVTTEDGVKFKRPLPNPDFDPNKNYIPRSQRREWHVVGLLGQIAVRIDETV
+FT                   KQGHGIDAVGGVATDGDNFIVQEITTPYTKEKGYGVAIVLVK"
+FT   gene            13947..15041
+FT                   /gene="13"
+FT   CDS             13947..15041
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="13"
+FT                   /product="morphogenesis protein"
+FT                   /function="tail assembly"
+FT                   /note="similar to NP_040731.1 morphogenesis protein A
+FT                   Bacillus phage PZA, NP_690647.1 morphogenesis protein
+FT                   Bacillus phage B103"
+FT                   /db_xref="GOA:P15132"
+FT                   /db_xref="InterPro:IPR011055"
+FT                   /db_xref="InterPro:IPR041219"
+FT                   /db_xref="PDB:3CSQ"
+FT                   /db_xref="PDB:3CSR"
+FT                   /db_xref="PDB:3CSZ"
+FT                   /db_xref="PDB:3CT0"
+FT                   /db_xref="PDB:3CT1"
+FT                   /db_xref="PDB:3CT5"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P15132"
+FT                   /protein_id="ACE96036.1"
+FT                   /translation="MVYVSNKYLTMSEMKVNAQYILNYLSSNGWTKQAICGMLGNMQSE
+FT                   STINPGLWQNLDEGNTSLGFGLVQWTPASNYINWANSQGLPYKNMDSELKRIIWEVNNN
+FT                   AQWINLRDMTFKEYIKSTKTPRELAMIFLASYERPANPNQPERGDQAEYWYKNLSGGGG
+FT                   GGLQLAQFPMDIINISQGENGSFSHKGTLCIDFVGKTEKYPYYAPCDCTCVWRGDASAY
+FT                   LAWTSDKEVMCADGSVRYITWVNVHESPLPFDVGKKLKKGDLMGHTGIGGNVTGDHWHF
+FT                   NVIDGKEYQGWTKKPDSCLAGTELHIYDVFAVNNVEIINGNGYDWKTSDWQDGDGGDGD
+FT                   DNDNNKTKDLITLLLSDALHGWKA"
+FT   gene            15060..15455
+FT                   /gene="14"
+FT   CDS             15060..15455
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="14"
+FT                   /product="holin"
+FT                   /function="lysis protein"
+FT                   /note="similar to NP_040732.1 lysis protein Bacillus phage
+FT                   PZA; putative dual start motif"
+FT                   /db_xref="GOA:P11188"
+FT                   /db_xref="InterPro:IPR006480"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P11188"
+FT                   /protein_id="ACE96037.1"
+FT                   /translation="MKMIAWMQHFLETDETKLIYWLTFLMVCMVVDTVLGVLFAKLNPN
+FT                   IKFSSFKIKTGVLIKVSEMILALLAIPFAVPFPAGLPLLYTVYTALCVSEIYSIFGHLR
+FT                   LVDDKSDFLEILENFFKRTSGKNKEEK"
+FT   gene            15457..16233
+FT                   /gene="15"
+FT   CDS             15457..16233
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="15"
+FT                   /product="peptidoglycan hydrolase"
+FT                   /function="lysis protein"
+FT                   /note="similar to NP_040733.1 morphogenesis protein B
+FT                   Bacillus phage PZA, AAK40280.1 endolysin Bacillus
+FT                   amyloliquefaciens phage Morita2001, NP_690649.1
+FT                   morphogenesis protein Bacillus phage B103; pfam00959,
+FT                   phage_lysozyme"
+FT                   /db_xref="GOA:P11187"
+FT                   /db_xref="InterPro:IPR002196"
+FT                   /db_xref="InterPro:IPR018392"
+FT                   /db_xref="InterPro:IPR023346"
+FT                   /db_xref="InterPro:IPR033907"
+FT                   /db_xref="InterPro:IPR036779"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P11187"
+FT                   /protein_id="ACE96038.1"
+FT                   /translation="MQISQAGINLIKSFEGLQLKAYKAVPTEKHYTIGYGHYGSDVSPR
+FT                   QVITAKQAEDMLRDDVQAFVDGVNKALKVSVTQNQFDALVSFAYNVGLGAFRSSSLLEY
+FT                   LNEGRTALAAAEFPKWNKSGGKVYQGLINRRAQEQALFNSGTPKNVSRGTSSTKTTPKY
+FT                   KVKSGDNLTKIAKKHNTTVATLLKLNPSIKDPNMIRVGQTINVTGSGGKTHKVKSGDTL
+FT                   SKIAVDNKTTVSRLMSLNPEITNPNHIKVGQTIRLS"
+FT   gene            16244..17242
+FT                   /gene="16"
+FT   CDS             16244..17242
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="16"
+FT                   /product="ATPase, DNA encapsidation protein"
+FT                   /note="similar to NP_040734.1 morphogenesis protein C
+FT                   Bacillus phage PZA, NP_690650.1 encapsidation protein
+FT                   Bacillus phage B103; pfam05894, Podovirus_Gp16, podovirus
+FT                   DNA encapsidation protein (Gp16)"
+FT                   /db_xref="GOA:P11014"
+FT                   /db_xref="InterPro:IPR008784"
+FT                   /db_xref="InterPro:IPR027417"
+FT                   /db_xref="PDB:5HD9"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P11014"
+FT                   /protein_id="ACE96039.1"
+FT                   /translation="MDKSLFYNPQKMLSYDRILNFVIGARGIGKSYAMKVYPINRFIKY
+FT                   GEQFIYVRRYKPELAKVSNYFNDVAQEFPDHELVVKGRRFYIDGKLAGWAIPLSVWQSE
+FT                   KSNAYPNVSTIVFDEFIREKDNSNYIPNEVSALLNLMDTVFRNRERVRCICLSNAVSVV
+FT                   NPYFLFFNLVPDVNKRFNVYDDALIEIPDSLDFSSERRKTRFGRLIDGTEYGEMSLDNQ
+FT                   FIGDSQVFIEKRSKDSKFVFSIVYNGFTLGVWVDVNQGLMYIDTAHDPSTKNVYTLTTD
+FT                   DLNENMMLITNYKNNYHLRKLASAFMNGYLRFDNQVIRNIAYELFRKMRIQ"
+FT   regulatory      complement(17262..17295)
+FT                   /note="Rho-independent terminator"
+FT                   /regulatory_class="terminator"
+FT   regulatory      17271..17301
+FT                   /note="Rho-independent terminator"
+FT                   /regulatory_class="terminator"
+FT   gene            complement(17383..17547)
+FT                   /gene="16.6"
+FT   CDS             complement(17383..17547)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="16.6"
+FT                   /product="hypothetical early protein"
+FT                   /note="similar to NP_040736.1 gene 16.6 product Bacillus
+FT                   phage PZA"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P16516"
+FT                   /protein_id="ACE96040.1"
+FT                   /translation="MKLLTHVCHYCSFSFFTRKFDVFGAITKKDTPVVFCPTCGNQSLS
+FT                   VSHIEEEIR"
+FT   gene            complement(17544..17936)
+FT                   /gene="16.7"
+FT   CDS             complement(17544..17936)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="16.7"
+FT                   /product="hypothetical early protein"
+FT                   /note="similar to NP_040737.1 putative replication
+FT                   organizer protein P16.7 Bacillus phage PZA"
+FT                   /db_xref="GOA:P16517"
+FT                   /db_xref="InterPro:IPR009595"
+FT                   /db_xref="InterPro:IPR037211"
+FT                   /db_xref="PDB:1ZAE"
+FT                   /db_xref="PDB:2BNK"
+FT                   /db_xref="PDB:2C5R"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P16517"
+FT                   /protein_id="ACE96041.1"
+FT                   /translation="MEAILMIGVLALCVIFLLSGRNNKKKQEARELEDYLEDLNKRVVQ
+FT                   RTQILSELNEVISNRSIDKTVNLSACEVAVLDLYEQSNIRIPSDIIEDLVNQRLQSEQE
+FT                   VLNYIETQRTYWKLENQKKLYRGSLK"
+FT   gene            complement(17938..18255)
+FT                   /gene="16.8"
+FT   CDS             complement(17938..18255)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="16.8"
+FT                   /product="hypothetical early protein"
+FT                   /note="similar to NP_040738.1 unknown protein Bacillus
+FT                   phage PZA"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P16518"
+FT                   /protein_id="ACE96042.1"
+FT                   /translation="MIDIIVKEDKRLITVQTPEGDEVFYTLSFSDGHKILKRSSARLRN
+FT                   NIYAIGVANIRWMLVDMDNMILSEYIHHVDILKDIDRKMREMGYIVISEWQHANKKGTR
+FT                   R"
+FT   gene            complement(18252..18578)
+FT                   /gene="16.9"
+FT   CDS             complement(18252..18578)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="16.9"
+FT                   /product="hypothetical early protein"
+FT                   /note="similar to NP_040739.1 gene 16.9 product Bacillus
+FT                   phage PZA"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P68936"
+FT                   /protein_id="ACE96043.1"
+FT                   /translation="MSVQLNAFTFILERRGWRMVCYEQLTTNGTRILHFYLKDNPTFFA
+FT                   TYSSQFLSDTKMIRRFASWSGQLLEGSNSVFWTNITPFEPIDEETAEDIKNLDKVVEGM
+FT                   NFTL"
+FT   gene            complement(18580..19080)
+FT                   /gene="17"
+FT   CDS             complement(18580..19080)
+FT                   /codon_start=1
+FT                   /transl_table=11
+FT                   /gene="17"
+FT                   /product="hypothetical early protein"
+FT                   /note="similar to NP_040740.1 gene 17 product Bacillus
+FT                   phage PZA, VG17_BPPH5 early protein GP17 Bacillus phage
+FT                   phi15"
+FT                   /db_xref="GOA:P03686"
+FT                   /db_xref="InterPro:IPR035184"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P03686"
+FT                   /protein_id="ACE96044.1"
+FT                   /translation="MNNYQLTINEVIDIINTNTEINKLVAKKENLFPTDLYDLDKQELI
+FT                   AIILNSDFALSSIKRVLLEVTVEELGTQDNDEDDELEDLDGEIDRVDYIDKDGIRFDVP
+FT                   RETSPHVDKSIVTFNDELLDEANKIAKSIQEHDFNDKAIEEAELKIFKNHLPSIYSMKK
+FT                   ENK"
+FT   regulatory      complement(19124..19158)
+FT                   /note="early promoter C2; activity repressed by protein p6"
+FT                   /regulatory_class="promoter"
+FT   repeat_region   complement(19277..19282)
+FT                   /rpt_type=LONG_TERMINAL_REPEAT
+FT                   /note="right terminal inverted repeat unit"
+XX
+SQ   Sequence 19282 BP; 5799 A; 3801 C; 3910 G; 5772 T; 0 other;
+     aaagtaagcc cccaccctca catgatacca ttctcctaat atcgacataa tccgtcgatc        60
+     ctcggcatac catgatcagg gagggaaact actacttaat atatcaatct atagacctac       120
+     tagataggtt tgtcaatgaa caacataaaa cgacacagaa tcccacgttt tagcgcttcg       180
+     tctgtgtcgc atgtaaaagg ttatcaaagt agcgtgcact tttgccatga ttgacaacca       240
+     atcaacaaag tatgtgggct gaactcaatc agggtttaat ccccaacata cacatgacaa       300
+     tggaagtacc gtaccattga tactaccatt atagcatact ctgtaatagt tgtcaaacat       360
+     taatagttaa ttctcccatt ctaaaacgat ttgatcgttt atttctacaa ttagatggac       420
+     tccatttgta ccgaatggat ggacttgtaa ctttatcgta ccatctttaa acatattcgc       480
+     aatatgttct tctaactctg cacgcttcat gatataaccc tccttatcag atgtcaaata       540
+     tagttttctc acggctcaac tcaaacctat caaacttgta acccctcggc gctttatact       600
+     taatcaacac actagccgca tccgttctac tacgtgctgt cgtatcatag cgcctaacta       660
+     ccccattgtc gttaatagag aagatagtta ctagataact catagtactt tatccaacct       720
+     tagttttata atttcatcag cagtgttacc gtatagaacc tcaaagtctg acaaactcag       780
+     tcccttgtgg tactcataat actgtttacc gtcatcatct tgaagcaaca ttgtcacatc       840
+     gtatgagtca acaaaatcat tttgcaccat gtggagcacc tccaaataac acctttataa       900
+     cccatgtggc gtaatcattg ttttccatcc tagaaagctc atacaatgcg tttttcatga       960
+     gtttattttc atgctctagt ttagtcatct tcttttctaa ctcaaggtct atcatcttta      1020
+     agtctccgtc tacaggtgct ataatgcctt gattacccca tttagagttt ttccatgtgc      1080
+     cttctaatct cttctcttga tcgaagattt tacccattac aaacatctcc ttttaaacaa      1140
+     acgtttattt gattgtgaat gtgtcatcaa ccagaaccac cccgcccggc acttgcacag      1200
+     gcttaggctt cattttccga ctgaatccga ctttgaaatt ctcaaacgta acctctttct      1260
+     taatcttgtc agtcattccc gcacatttaa cactaaattt tatatcagtg taatcatctg      1320
+     gactaccttc tactaactta ccatctactt ctttcatata gatgtcttgt atataggtct      1380
+     tctgtctcag atatttagct cttttgaatg tactttcatg tgcccagtat cccaatttct      1440
+     tagggtcaac tatatctttt attacatcag gtatctctgt acccgttaaa tgtatgctgt      1500
+     cagtatcaca gtatattatc cgatcataac aagcctgtgc cgctgtaatt gtcgtgtatc      1560
+     tagcccatgc agtgatgaaa acgcccatag gtgtataaac agggtctttt gtttcctctt      1620
+     ctccaagtct gaaacctagc gccccattct cttttaaata agggactttc cctgtaacat      1680
+     cagggttact agcgaattta ccgtatagac tgtttaacat cagttttgct agttgcttga      1740
+     tcgctccttc tgatgtcgtc ttgatgtacg tccatttatc tataaaatct ttaaacaaac      1800
+     ctgtagttgc tttaaatttt aagccgctga tatattcaac gttatataaa tcgtagtgtt      1860
+     ctttcattaa ttctaggtct acatttgaca accagaggtc ggctatctcc ccgccgctac      1920
+     tttttaggta ctcattacct ttataaaacc tacttctttt tatctgtata gtgggtatat      1980
+     agccctcttt caattcgaac tcacatctga tatgctgtat gtgtagtggg taatcttcgt      2040
+     cccaaacgta tttaccctcg aatactatag gttcaccata tggaaggaga cggctataca      2100
+     tctgtgcagg atatagacta ttaacatcga agaccatgcc ttctccgatt tctttttctt      2160
+     tgaacctatc atttaaccat gtaaaaccac ctctataggc gtatctcact tccttatcga      2220
+     gtccaagact caatgtagga aacacctttt tgaatttctt agtggttata atatccttga      2280
+     aaccttttag actgtcactg cctgctgtca tccggtctaa accttgctta aactgaatta      2340
+     acagagcttc cgcaataatc tgaatatcgt ttttaatata ggcgtattct tcgggtgtta      2400
+     tcttatagcc gactggtctt tctttgtggt aatcaatatc acctttaaga acagttagtt      2460
+     taaagtcttt agctatcttc ttaacaggaa acggtagttt ctttaagctg tcatatatca      2520
+     ctgtatgtat cttacgtttc cctttgtagc ctaaacatat atcaatcatg taccattgtc      2580
+     ccatgcgaga tatgatcgta ttatatgtgt ttggcaatcc gtcagccgac cacttaaaac      2640
+     cattacgttc caaccagtta atgataaaag ctccgtcaaa tttgaggtta tggaaatata      2700
+     gatcagcttg taccttcaac acccacgcca taaactcatc caggctatta cctattttgt      2760
+     actcactgtg atcttctata ttcatataac catacgccca taccctacag tcttccactt      2820
+     tagtagttgt ctcaaagtca caactataca tctttctcgg catatgcttc atcctttaac      2880
+     ggagcctaga acccctttaa gcttagatca aagtcacccc ttcgatactg ttccaagtat      2940
+     gacagtattt tatatacatt accttctacg ttctccactg tgtttccctc actatcaaat      3000
+     tcctcaaagg atatttctga tattctgaga aacaattcat agaagtcatc aggaggtatc      3060
+     ttttttaatt cttcgatcag ttcatctgcc gcatcaaatg aattgaaact accctcaacg      3120
+     ctcttaataa agtttaactg taactgtatc attttctttt cataatactg agggtctgtt      3180
+     ctcatctcca tgctttcttc tagggttcgc aaacggctat agcttcgcac cttgctaaag      3240
+     tcaaaatcat ggggtctatt aattcctgta acgtgtgcag gacttgtcat agctatccgt      3300
+     tgttcaattg tcccttgcgg cttaccgcct gcatagtatt ctttgtcttt catagccttg      3360
+     attttctcat ctactaaccg ctgaacctct tttgtgttac gttcaatctc agctatctta      3420
+     gctttactag ccaccacacc gtatgcattc ttttcgaact gataacgcat attagcacgg      3480
+     ttagtgaaag aggacgcttg ttccttccac ttattgaact gcgcccgtgt ttcaaatgaa      3540
+     tcaaggtcag gtatatcaat ttcagcggta aggtctacac catacttttt cttcgttctc      3600
+     gcaatcttgg cttttgtatt cttgaccaat cgagcgtatt cggctttgtc attatcctta      3660
+     atgcgtatac gtggacttct cgccatgttg cgttatctcc tttcaaccaa gcatggaaac      3720
+     cacgcttttc aacttctgaa tagaacgtga tgtctgcgag catatccata ttccacggtg      3780
+     taacagcgac ccgttctatc ttcttattaa atttcttcct gtattcttgg tatccatcga      3840
+     gaaacttgtt caaatacaat tcacttgaaa agaaaaacgt gacatcggtg ttagatgcca      3900
+     cgtattcaga ttccttcaag ttatgataga tacctctttg tgttttaggc atctatattt      3960
+     tacctcctgt ttatagggat agttgtaagc taaagaatac gttaccttta ctagatgttc      4020
+     cttgaaccac tttaacctta aacgtttcaa gcttatgacg agtcacaagg tcaattaagt      4080
+     cagatgcggc ttctgctaca gtcttagaga tagcggaata taacgacccg tcagccgcaa      4140
+     aaatagtagt aactgtttct tccttagcgt ccccgtatgt atcggacact tgcttatatt      4200
+     gagcaatggc gttggcttct ataattgttc catctggaag gtttttaaaa gattgtccgc      4260
+     cgcctgtctg agcattaaag attttgattt gtccttcaag agtttctgtg tcaaaagtag      4320
+     cctttacgat gtttgtgttt tccattatta atcatccttt tcattttggt ttatttgata      4380
+     ggtcgtgcgt gttaagagag tgttaagagt taaacgatct tgaaactggt tgttctgatg      4440
+     acaacttgtc cgcctacatt tgcggcaact ttctgcgctt cccatttatc tttaaacccg      4500
+     taagcttgtt ctgaatcgtg tgttaggtca atgcttttat aattaagatt gaaggtgttt      4560
+     atgaatagcg ctccaactaa tactagaacc ttctcttgtg tttccatcat tcagcaacct      4620
+     gttcttctgg agcttctgtt tgttcctctt gatcttcgtc tttctctacc cgaacggtag      4680
+     caacttcaag gaatttttct acaggtagct cataaacctc tgtgttaggt tcaacgctta      4740
+     ccacttgaac aggttcgcct ttatatttgc gcttcattct ccattgagcc tgttccattg      4800
+     tcagattacc cacaaatgtt tcagatggta gttgctctac ctgaacctct ccgtccacca      4860
+     tcaccatttt ggcaacgttg acggttgtct ttgtgatttc tctctgcatc atttttgcca      4920
+     tttcttcgtc ccactttcta tttatatttg tagactctgt atctcttcta ctcttttatt      4980
+     atatcaccct gttcgacaat tttcaacact tttctataaa aagttcgaca aagttttaca      5040
+     aggttttaat aaaaggttgt tgtctacgtt ctctatttaa ccacacctgt ataacttttt      5100
+     gcaagacttt tttataaaat gttgacgttt ttcgacaaga acgcccacaa atccttatgt      5160
+     atcaagggtt cacgtggtat aattaagtag tactaataga ttatagaaag aggtgaaaca      5220
+     tatgccatta aaaccagaag aacacgaaga tattttgaat aagcttttag accctgagtt      5280
+     ggctcaatca gaaagaacgg aagctcttca acagctcaga gtgaactacg gttcttttgt      5340
+     gtccgagtac aatgatttaa caaaatctca tgaaaagtta gccgctgaaa aagatgatct      5400
+     gatcgtgtca aatagtaagc ttttcagaca gattggtttg acagacaaac aggaagaaga      5460
+     tcacaagaaa gctgatatta gtgaaacaat cacgatcgag gacttagaag caaagtaatt      5520
+     ataatagaag aaaagaggta caacattcat gcgaattaca tttaacgacg tgaaaacgtc      5580
+     tctaggtatt accgaatcat acgacatcgt gaatgccatt cgtaacagtc agggcgataa      5640
+     cttcaaaagt tatgtgccgc tagcaactgc gaacaacgtc gcagaagtcg gggcaggtat      5700
+     cctgatcaat caaacggtac aaaatgattt catcacgtcc cttgttgatc gtattggact      5760
+     tgtggttatc cgacaggtgt cgttaaacaa cccgttgaag aaattcaaga aaggtcaaat      5820
+     tcctctcggt cgtactatcg aagagattta tacagacatc acaaaagaaa aacagtacga      5880
+     tgctgaggaa gccgaacaga aggtatttga acgtgaaatg ccgaacgtca aaactctctt      5940
+     ccacgagaga aacagacagg gcttttatca tcaaacaatc caagatgact cactcaaaac      6000
+     tgcatttgta tcatggggta atttcgaaag ctttgtttct tctattatta atgctatcta      6060
+     caatagtgct gaagtagacg aatacgaata tatgaaattg ttagttgaca actactattc      6120
+     aaaagggttg ttcactactg taaaaatcga tgagccgact tcttctacag gggcattaac      6180
+     tgaatttgtg aagaaaatgc gtgcgactgc tcgtaaactc acattgccgc aaggttcccg      6240
+     tgactggaac tcaatggctg ttcgaacacg ctcttatatg gaagatttac acctaatcat      6300
+     tgacgctgac cttgaagctg aactagatgt tgatgtttta gctaaggcat tcaatatgaa      6360
+     ccgtactgac ttcctcggaa atgtgacggt cattgatggt ttcgcatcca ctggactaga      6420
+     agctgtttta gttgacaaag actggtttat ggtgtatgac aacctccata aaatggagac      6480
+     ggttcgtaac ccacgtggtc tgtactggaa ctattactac catgtgtggc agaccctaag      6540
+     cgtgtcccgt tttgccaatg ccgttgcgtt tgtatctggt gatgttcctg ctgttactca      6600
+     ggttattgtt tctcctaaca tcgccgcagt taaacaaggc ggacaacaac aattcactgc      6660
+     ctatgttcgt gctacagacg ctaaagatca taaagtcgtt tggagcgttg aaggtggttc      6720
+     aacgggtaca gctattacag gggatgggct tctttctgtc agcggaaacg aagataatca      6780
+     gttaacagta aaagcaactg ttgacatcgg aacagaagac aaaccaaaac tcgttgtggg      6840
+     tgaagctgtt gtatctattc gtccgaacaa tgcctctgga ggtgctcagg cgtaatgatg      6900
+     gtttcattta ctgcacgtgc aaagtctaat gttatggcat atcgtttact agcgtattca      6960
+     cagggagacg acatcataga aatttcacac gccgcagaaa atactatacc tgattacgtt      7020
+     gccgttaaag acgttgacaa gggtgatcta acacaagtca acatgtaccc tttagccgct      7080
+     tggcaagtta tcgccggaag tgacatcaaa gtgggcgata atctcacaac tggtaaggat      7140
+     ggtactgctg ttccaaccga cgaccctagc actgtttttg ggtacgctgt cgaagaggct      7200
+     caggaaggac agctagtcac cctcgttatc agccgatcaa aagaaatttc tatagaagta      7260
+     gatgatatta aggacgccgg agacactggg aaacggttat tgaaaatcaa taccccgtcc      7320
+     ggtgctcgta atatcattat tgaaaatgaa gacgctaaag cattgataaa tggtgaaacc      7380
+     accaacacaa ataagaagaa ccttcaagac ctactatttt cagacggtaa tgttaaggct      7440
+     tttctacaag ctaccacgac cgatgagaat aaaacggctc ttcaacaatt gttggttagc      7500
+     aacgccgatg tgcttggtct tctgtcagga aacccaacat ctgacaataa aattaacctt      7560
+     cgcacaatga tcggggcggg cgttccatac tcgctccccg ccgctacaac gacaacgtta      7620
+     ggcggtgtga agaaaggtgc ggcagttaca gcatctacag caaccgacgt ggcgactgcg      7680
+     gttaaagact tgaacagttt aattactgtt ttaaagaacg caggaatcat atcataaggt      7740
+     ggtttgatta atggcatatg taccattatc aggaacgaac gtcaggattt tagctgacgt      7800
+     tcctttctct aatgattata aaaacacgag atggttcaca tcttcaagta atcagtataa      7860
+     ctggtttaac agcaaatcac gtgtgtatga aatgagtaaa gtaacattca tggggtttag      7920
+     agaaaataaa ccatatgttt cggttagtct tcccatagat aagctttaca gtgcgtcata      7980
+     tattatgttt caaaatgcag actacggtaa caagtggttt tatgcatttg taaccgagtt      8040
+     agaatttaaa aatagtgctg ttacctacgt tcactttgaa attgatgttc tccaaacatg      8100
+     gatgttcgat attaaatttc aagaatcatt cattgtgagg gagcacgtta aattatggaa      8160
+     tgacgacggg acaccgacta tcaacacaat tgatgagggt ctcagctacg gaagtgaata      8220
+     cgacatagtt tctgtagaaa accataaacc atacgacgac atgatgtttc tcgtgattat      8280
+     ttccaaaagc attatgcatg ggacgccggg agaagaggaa agcaggctaa atgacataaa      8340
+     cgcaagcctg aacggcatgc cgcaacctct ctgctactat attcacccat tctacaaaga      8400
+     tggtaaagtt cctaaaacgt atatcggaga taacaacgct aacttgtctc ctattgtcaa      8460
+     tatgctcacc aatatctttt cacagaagag cgctgttaac gatattgtca atatgtatgt      8520
+     gactgattat attggtttga agcttgacta taaaaatggt gataaagaat tgaagctcga      8580
+     taaagacatg tttgaacagg cgggtatagc tgacgataaa cacggtaacg ttgacaccat      8640
+     ctttgtgaag aaaatacctg attatgaagc cctagaaata gacacaggtg ataaatgggg      8700
+     tggcttcaca aaagaccaag aaagcaaact gatgatgtac ccttactgcg ttacggaaat      8760
+     aactgacttt aaaggcaacc atatgaatct gaaaaccgag tacatcaata acagtaaact      8820
+     aaagatacag gttaggggtt cactaggggt cagtaacaag gttgcctaca gtgttcagga      8880
+     ttataacgca gatagcgcat tgagtggcgg caatagattg actgcgtctc tagattcatc      8940
+     cttaatcaac aacaacccaa atgacatagc aatactaaat gactatctat ctgcttattt      9000
+     acagggcaac aaaaattcac tagagaacca aaaatcgtct atccttttta atggcattat      9060
+     gggtatgatc ggcggaggta tatcagcggg agcaagtgcg gcaggaggtt cagccctagg      9120
+     gatggcttca tcagttacag ggatgacaag cactgcgggt aatgctgttc tacagatgca      9180
+     agcgatgcaa gccaagcaag ccgatatagc aaacattccg ccgcagttaa cgaaaatggg      9240
+     cggcaacaca gcgtttgatt acgggaatgg gtacagaggt gtgtacgtca tcaaaaagca      9300
+     attgaaggct gaatacagac gaagtctatc aagtttcttc cataaatacg gatacaagat      9360
+     taacagggta aagaaaccaa atttaagaac acgaaaagca tttaactatg ttcagacaaa      9420
+     agactgtttc atttcagggg acatcaataa caatgactta caggaaataa gaacaatttt      9480
+     cgataatggt attactcttt ggcatactga caacatcgga aattacagcg tcgagaatga      9540
+     attgaggtga cacaatggca cgtaaacgca gtaacacata ccgatctatc aatgagatac      9600
+     agcgtcaaaa acggaataga tggtttattc actatctgaa ctaccttcaa tctctagcct      9660
+     atcagctatt tgagtgggag aacctaccgc ctacgataaa ccctagtttc ttagaaaagt      9720
+     ctattcatca attcgggtac gtggggttct ataaagaccc tgtcatcagt tatatcgctt      9780
+     gtaatggcgc tctatcgggt cagagagacg tttacaacca agctacagtt tttagagccg      9840
+     catctcctgt gtatcaaaaa gaattcaagc tatacaacta tagagatatg aaggaagaag      9900
+     atatgggtgt tgttatctac aacaatgaca tggctttccc taccacgcca acgctagaat      9960
+     tgtttgcggc tgaattggct gaattaaaag aaatcatatc ggtcaaccaa aacgctcaaa     10020
+     agacacccgt cttaattaga gcaaatgaca ataaccaact gagcttaaaa caagtgtata     10080
+     accagtatga aggtaatgcc cctgttatct tcgctcacga agctctcgac agtgactcta     10140
+     tagaagtgtt taagactgat gctccctatg tggtggacaa gttaaacgct cagaaaaatg     10200
+     cagtatggaa tgagatgatg actttccttg gcattaagaa cgctaaccta gagaagaaag     10260
+     agcgcatggt tacggatgaa gtttccagta acgatgaaca gatcgagtct agcggcactg     10320
+     tatttttgaa gtcgagggaa gaagcatgtg agaagattaa tgagctatat ggtctcaatg     10380
+     ttaaagttaa attcagatat gacatcgtgg aacaaatgag acgtgagcta cagcaaatag     10440
+     aaaatgtttc acgtggaaca tcggacggtg aaacaaatga gtagttacac aatgcagtta     10500
+     agaacctaca ttgaaatgtg gtcacagggt gagacgggtt tatcaaccgc tgagaagata     10560
+     gagaaaggca gacccaagct attcgacttt aactatccta tctttgacga gtcataccgt     10620
+     accattttcg agacacattt cattcgcaat ttctatatgc gggagatcgg ttttgaaaca     10680
+     gaaggtttgt tcaagtttca tttagaaaca tggctcatga ttaatatgcc ctactttaac     10740
+     aagctttttg aaagtgagtt aatcaaatat gacccacttg aaaatactcg tgttggtgtg     10800
+     aagagtaaca cgaagaatga cacagataga aatgataacc gagacgttaa acaagattta     10860
+     acatcgaacg gaacatcatc tactgacgcc aaacagaacg acacgagtaa gacaacaggg     10920
+     aacgaaaaaa gtagcggtag cggctctata acagatgaca atttcaaacg tgatctaaat     10980
+     gcggataccg ctgatgaccg tttacagtta acaacaaaag acggtgaagg tgtcctagag     11040
+     tacgcttctc aaattgaaga acataacgag aataagaagc gagatacaaa gacaagtaat     11100
+     acaactgaca caactagcaa cacaacggga acaagtacac ttgattcgga ttccaagaca     11160
+     tccaacaaag cgaatacaac gagtaacgac aagttaaaca gtcagatcaa tagcgttgaa     11220
+     gattacatcg aagatagagt gggtaaaatc gggactcaaa gttatgctcg attggttatg     11280
+     gattaccgag aagctctact acgtatcgaa caaagaatct ttaacgaaat gcaagaactg     11340
+     tttatgcttg tgtattaagg aggacaacac atgtcaacta aacccgaatt gaaacggttt     11400
+     gagcagtttg gagagatgat ggttcagtta tatgaacggt atctaccaac cgcctttgat     11460
+     gaaagtttaa cattattgga gaaaatgaac aagatcatcc attacttgaa tgagattggc     11520
+     aaagtaacaa atgagctaat cgaagaatgg aacaaggtaa tggagtggat tctcaatgac     11580
+     gggttagaag acttagtcaa agagacgctc gaaagatggt atgaagaagg taaattcgct     11640
+     gacctcgtta tccaagttat cgacgaattg aagcagtttg gtgttagcgt taagacctat     11700
+     ggagcaaagg gcgacggtgt aactgatgat attagagctt ttgaaaaggc tatagagtct     11760
+     ggttttcctg tgtatgtgcc atatggaaca ttcatggttt cacgtggaat caaactacct     11820
+     agtaacaccg tattaaccgg ggcagggaaa cgtaatgctg tcattaaatt catggatagt     11880
+     gtgggacgtg gagaaagtct catgtataac gaaaatgtga caactggtaa cgaaaatatt     11940
+     ttcctgtctt cattcaccct cgatggtaat aataagcgct tgggtcaggg tatttcaggt     12000
+     atcggcggtt cacgggaaag taacctttct atccgtgcct gtcataacgt gtatatccgt     12060
+     gatattgaag ctgttgactg tacactacat ggaatcgaca tcacatgcgg tggactcgat     12120
+     tacccttact tgggtgatgg tacaactgct ccgaatccat cagaaaacat ctggattgaa     12180
+     aattgtgagg cgactggttt cggtgatgat gggatcacaa ctcaccacag ccaatacatc     12240
+     aatatcttga attgttactc acatgaccca cgtttaacag ctaactgtaa cgggtttgag     12300
+     attgatgacg gctcacgtca cgtggtgtta agtaataacc gttctaaagg ctgttacggt     12360
+     ggtatcgaga ttaaagctca cggagacgct ccggcggctt ataacatctc tataaacggt     12420
+     catatgtctg tagaagacgt tcggtcatat aacttccgac acatcggtca ccatgcggct     12480
+     actgccccgc agtccgtatc agctaaaaac attgttgctt cgaatcttgt atctattaga     12540
+     ccgaacaaca aacgtggttt ccaagacaat gctacgccga gggttctagc tgtatcagca     12600
+     tactacgggg ttgtaatcaa cggtttaaca gggtacacag atgaccctaa cctattgact     12660
+     gaaaccgttg tgtctgttca atttagggct agaaactgtt ctcttaatgg tgttgttctt     12720
+     actggattct ctaactctga gaatggaatc tatgtcattg gcggtagccg tggcggagac     12780
+     gccgttaata tcagtaacgt tacccttaat aactcaggta gatatggggt gtcaattggc     12840
+     tcaggaattg aaaacgtatc tatcaccaat attagcggta tcggtgacgg tattaattct     12900
+     cctgtagcac tcgtgtcaac gattaacagt aaccctgaga ttagcggatt aagtagtatt     12960
+     ggatacccta cggttgctag agttgcaggg acagactata acgatggttt aacactcttt     13020
+     aatggtgcgt ttcgtgcttc cacaacatct agcggcaaga ttcacagtga gggcttcatc     13080
+     atgggttcaa cgtcagggtg tgaagcatct gtttcaaaat caggtgttct aacgtcatca     13140
+     agctcgaaga ctagctctga gcgttctctc atagcaggta gttcaacatc tgaagccaag     13200
+     ggaacatata acacgatttt aggttcactg ggtgcggttg ctgatgagaa gtttgcggct     13260
+     ttaatttctg cgtcacaatc aagagcatca ggaaaccaca acttaattct atcaagttat     13320
+     ggaattaata caacagggtc atacaaagtt aacggtggat tcgaaaagat caactgggag     13380
+     ctagattcct taaacggtag aattaaagct cgtgacaccg taacaggcgg aaacacatgg     13440
+     agtgactttg ccgagtattt tgagagctta gacggtcaag tcattgaaac agggtatctg     13500
+     gttactcttg aaaaaggtaa aatccgtaaa gctgaaaaag gtgaaaagat catcggtgtt     13560
+     atcagtgaaa cagcggggtt tgtccttggt gaatcatcat ttgaatggca gggagctgtc     13620
+     cttaaaaacg agtttggcgg catcatttat gaggaagtca caacagaaga cggcgtaaaa     13680
+     ttcaaacgac cgcttccaaa ccctgacttt gaccctaata agaattatat cccacgtagt     13740
+     caacgtagag aatggcatgt tgttggttta ctggggcaga tcgctgttag aatcgacgaa     13800
+     acagttaaac aagggcatgg tattgatgct gttggcggtg ttgctacaga cggcgataac     13860
+     tttattgtgc aagaaataac taccccgtat acaaaggaaa aaggatacgg tgtggcgatc     13920
+     gtgttagtta agtgaggtag tctcctatgg tgtatgtatc taataaatat ctgacaatgt     13980
+     ctgagatgaa ggtcaacgct cagtacattc taaactacct cagtagtaac ggttggacaa     14040
+     agcaagccat ttgcgggatg ctcggtaata tgcaaagtga gagcaccata aatccgggat     14100
+     tatggcagaa tcttgacgag ggtaacacct cgttaggatt tgggcttgtg caatggacac     14160
+     ccgctagtaa ttatatcaat tgggctaaca gtcaaggact accatataag aacatggata     14220
+     gtgaattaaa gcgaattata tgggaagtaa acaataatgc tcaatggata aacttacgtg     14280
+     acatgacctt taaagagtac attaagagca cgaagacgcc tagagaacta gcgatgatat     14340
+     ttctagcatc ttatgagcga cctgctaacc ccaaccaacc cgaacggggc gaccaagccg     14400
+     aatactggta taaaaacctc agcggcggcg gaggcggtgg actacaatta gcacaattcc     14460
+     caatggatat tatcaatata tcgcaagggg aaaacggtag tttctcgcat aagggaacac     14520
+     tttgtataga ctttgtgggc aaaactgaaa agtacccgta ttatgctccg tgtgattgca     14580
+     catgtgtatg gcggggtgat gcgagtgcat atctagcgtg gacttctgat aaagaggtta     14640
+     tgtgtgcgga cggaagtgtt cgctatatta catgggtaaa cgttcatgaa agtcctttgc     14700
+     cctttgatgt tggtaagaag ctcaaaaaag gcgatctgat gggacacaca ggtatcggag     14760
+     gaaacgtaac aggcgaccat tggcacttca atgttattga cggtaaggag taccaaggat     14820
+     ggacaaagaa acctgattcg tgtttagcag ggacagagtt acacatatat gatgttttcg     14880
+     ctgtcaacaa cgtggagata atcaacggaa acggctacga ctggaaaact agtgattggc     14940
+     aagacggaga cggtggagat ggcgacgaca acgataacaa taaaacaaaa gatttaataa     15000
+     cccttttact atctgacgcc ctccatggtt ggaaagcata gaaaaggaga atgggagata     15060
+     tgaaaatgat agcgtggatg caacactttt tagagacaga cgaaacaaag cttatttact     15120
+     ggttaacatt ccttatggtt tgtatggttg ttgatacagt tttaggggtg ttatttgcaa     15180
+     agcttaaccc aaacattaaa ttttcatcat ttaaaatcaa aacaggggtg ttgattaaag     15240
+     tcagtgaaat gattctagcg ttattggcta tccctttcgc tgttcctttc cctgcgggtt     15300
+     tacccctatt atacacggtt tatacggctt tgtgtgtatc ggaaatatat tctattttcg     15360
+     gacatctgag attagtagat gataaaagtg attttcttga aatacttgaa aacttcttta     15420
+     agcgcacatc cggtaaaaat aaggaggaaa aataacatgc aaatttcaca agcgggtatc     15480
+     aacttaatta agagctttga gggtttacaa ctgaaagcat ataaagctgt tccgactgag     15540
+     aagcattaca ccattggtta cggtcattac ggttccgatg tttcacctag gcaggttatc     15600
+     actgctaaac aggctgaaga catgttgcgt gatgatgtgc aggcttttgt ggatggtgta     15660
+     aataaagcat taaaagtatc tgtcacccaa aatcaatttg atgcacttgt ctcattcgct     15720
+     tacaacgttg ggttaggggc tttcaggtct tcttctctac tggaatactt gaatgaagga     15780
+     agaacagctc tagcggcggc tgaattccct aaatggaata agtcaggcgg taaagtttat     15840
+     caagggttga ttaaccgtag agcacaggag caagccttgt ttaatagtgg aacacctaaa     15900
+     aatgtttcac gtggaacatc gtctactaaa acgacaccta agtataaggt gaagagtggt     15960
+     gacaacctta ctaaaatcgc taaaaagcat aatacaacgg ttgctacttt gttgaagttg     16020
+     aatccgagta tcaaagaccc gaacatgatt agagttggac aaacaataaa tgttacaggt     16080
+     agcggcggca aaacacataa ggtgaaaagt ggtgacacac tcagtaaaat tgccgttgat     16140
+     aacaaaacga ctgtgagtag attgatgagt ctaaaccctg aaattacgaa tccaaatcat     16200
+     ataaaagtag gtcaaacaat tagattaagt tgaggtgtaa atcatggaca agagtttatt     16260
+     ttataatcca cagaaaatgt tatcatacga tcgcatactg aactttgtta tcggtgctcg     16320
+     tggtatcggt aaatcatatg caatgaaggt gtaccctatt aatcgcttta ttaagtacgg     16380
+     agaacaattc atatatgttc gacgatacaa accggagctt gcgaaggtct ccaactattt     16440
+     taatgatgta gctcaagaat tccctgacca tgagttggtt gtgaagggta gaaggttcta     16500
+     cattgatggt aagcttgcag ggtgggctat tcctctgagt gtgtggcaga gtgaaaaatc     16560
+     taatgcatat cctaacgtaa gcacaatagt atttgatgag tttatcaggg agaaagacaa     16620
+     tagcaactat attcctaatg aggtttcagc tttactaaac cttatggaca ccgtatttcg     16680
+     taaccgtgag cgtgtcagat gcatttgttt aagtaatgct gtatccgttg ttaaccctta     16740
+     ttttctgttc ttcaaccttg tccctgatgt caacaaacgc ttcaatgtat atgacgatgc     16800
+     tttaattgaa atacctgata gtcttgactt ctcatctgaa aggcgtaaaa caaggtttgg     16860
+     gcggctaatt gatggaaccg agtacggtga gatgagttta gataaccagt ttatcggaga     16920
+     tagtcaggtg tttatagaaa agcgcagtaa ggatagtaag tttgtattct ccatcgtcta     16980
+     taatggattc actcttggtg tgtgggttga tgttaatcaa ggtcttatgt acattgatac     17040
+     agcacatgac ccgtcaacta agaatgtata cacattgaca acagatgatc ttaatgaaaa     17100
+     catgatgttg ataaccaact ataagaataa ttatcattta cgtaagttag ctagtgcgtt     17160
+     catgaatggt tatctgaggt ttgacaatca ggttatcaga aatatcgcat atgagttgtt     17220
+     tcgtaagatg cgtatacagt aatgtttcac gtggaacaat caaaagaaaa gcctatcgtc     17280
+     tgaggaacgg taggctcttt tgtagcatat agttgtattc atggaattgt ataatagtgt     17340
+     gtgacagcat ccagtctaaa acggcttgga attctttctg attcatctga tttcctcctc     17400
+     gatatgtgat actgaaagag attgatttcc acaggtggga cagaagacaa caggagtatc     17460
+     tttcttggtt attgcaccaa acacatcaaa ctttcgagtg aagaatgaga agctacagta     17520
+     gtgacaaacg tgtgtaagca acttcatttc aatgaccccc gatatagttt tttctgattc     17580
+     tccaatttcc agtatgtccg ctgtgtctct atatagttta acacttcctg ttcactttgt     17640
+     aaacgttgat taaccaaatc ttcgatgatg tcactaggaa tgcggatatt tgactgctca     17700
+     tacagatcaa gcacggcgac ttcacaagct gacaggttga ctgttttgtc aatgcttctg     17760
+     tttgagataa cttcgttaag ctcgctgagt atttgtgttc gttgaacaac tcgtttgttg     17820
+     aggtcttcaa gataatcttc tagctccctt gcttcctgtt tctttttgtt gtttcgtcct     17880
+     gatagaagga atataacgca caatgcaagt acaccgatca ttaaaatagc ttccatgtta     17940
+     tctccttgtc ccctttttat tggcgtgttg ccattctgaa ataactatat aacccatttc     18000
+     cctcatttta cggtcgatgt cttttaaaat atccacatga tgtatgtact cactaagtat     18060
+     catgttatcc atgtctacta gcatccatct gatgttagcc acaccaattg cataaatgtt     18120
+     gtttcttagt cgtgcacttg aacgtttcag tatcttgtga ccgtctgaga aagacaaagt     18180
+     gtaaaatact tcgtctccct ctggtgtttg aacagtgatt agccgcttgt cctcttttac     18240
+     aatgatgtct atcataatgt gaaattcatc ccctcaacga ctttatcaag attcttgatg     18300
+     tcttctgctg tttcctcatc aattggttca aatggtgtga tgtttgtcca aaacacagag     18360
+     tttgagcctt ctagtaactg accgctccat gatgcaaagc gtcttatcat tttagtatca     18420
+     gataagaatt gcgatgagta tgtagcaaag aacgttgggt tgtccttgag atagaaatgt     18480
+     aagatgcgtg tgccatttgt tgttagttgt tcgtagcata ccattcgcca acctcggcgc     18540
+     tctaagatga aagtgaatgc attaagttgt acgctcatgt tacttgttct ccttcttcat     18600
+     gctgtagata gatggtaagt ggttcttgaa tattttaagt tctgcttctt ctatagcttt     18660
+     gtcattaaag tcatgttctt gtattgactt ggcgatctta ttcgcttcat caagaagctc     18720
+     atcattgaat gtaacgattg acttatctac gtgtggtgat gtttcacgtg gaacatcaaa     18780
+     tctgataccg tctttatcaa tatagtcaac tctatctatt tcaccgtcta aatcttctaa     18840
+     ctcatcatct tcgtcgttgt cttgtgtgcc taactcttca acagttactt ctagtagcac     18900
+     tcttttaatg ctagatagtg caaagtcact gttaaggatg atagcgataa gttcttgttt     18960
+     gtctaagtcg tataagtctg taggaaatag attttctttc ttggctacaa gcttattgat     19020
+     ctctgtgttt gtgttgatga tgtcgattac ctcattgata gttaattgat agttattcat     19080
+     gtgtaattcc tcctatgatt ggttgtctta ttaccttact tctattatag tataacatgt     19140
+     taaacgatag tttgtctacc cttttcgaca aattgatgat aataaatagt ataggtatat     19200
+     agtcgtgatt tagttgttag attcttgtcg aagatagtcg gtcaatgggg aaatggtgta     19260
+     tgttgtcgct gtaccctact tt                                              19282
+//
