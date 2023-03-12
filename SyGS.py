@@ -8,7 +8,7 @@ import zerorpc
 #
 # Open file to read in fasta sequences for modified and original records
 #
-fName=sys.argv[1]
+fName="test.fa" #sys.argv[1]
 fIn=open(fName,'r')
 geneName=[]
 geneSeqIn=[]
@@ -17,10 +17,13 @@ genes=[]
 for line in fIn:
 	genes.append(line);
 for i in range(0,int(len(genes)/2)):
+	print("gene :",i,"   ",genes[i])
 	geneName.append(genes[int(i*2)].split('>')[1].rstrip());
 	geneSeqIn.append(genes[int(i*2+1)].rstrip());
 fIn.close()
 genes=[];
+for g in geneSeqIn:
+	print("gene read",g);
 #
 # Start your engines
 #
@@ -29,6 +32,7 @@ SynthRecs = []
 q = 0
 c = zerorpc.Client()
 c.connect("tcp://192.168.1.180:4242")
+print("zerorpc",c) ;
 for p in geneSeqIn:
 #
 # Look for: non-ATG start codons, non-TAA stop codons,

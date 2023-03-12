@@ -22,6 +22,7 @@ class RefactorRPC(object):
 	muts={}
 
 	promMuts=[]
+	print("Starting SERVER")
 	def refactor( self, gName, inSeq, stnds ):
 		"""Refactor sequences: outSeq is output sequence, record is input, changes is mutations"""
 		RNASeqs = {
