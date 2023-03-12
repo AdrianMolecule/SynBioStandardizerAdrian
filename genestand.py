@@ -5,7 +5,6 @@ from Bio import SeqIO
 from Bio import Restriction
 from math import *
 import random
-from Bio.Alphabet import IUPAC
 from ast import literal_eval
 import json
 import zerorpc
@@ -135,7 +134,7 @@ class RefactorRPC(object):
 		if gName in RNASeqs:
 			changes=[]
 			m = 0
-			mySeq=SeqRecord(Seq(inSeq, IUPAC.unambiguous_dna))
+			mySeq=SeqRecord(Seq(inSeq))
 		else:
 			changes=[]
 
@@ -143,7 +142,7 @@ class RefactorRPC(object):
 			# 	inSeq=inSeq[:inSeq.find('ACCAATTGCAG')]+'ACGAATTGCAG'+inSeq[inSeq.find('ACCAATTGCAG')+len('ACCAATTGCAG'):]
 			# elif ('ACCAACTGCAG' in inSeq):
 			# 	inSeq=inSeq[:inSeq.find('ACCAACTGCAG')]+'ACGAATTGCAG'+inSeq[inSeq.find('ACCAACTGCAG')+len('ACCAACTGCAG'):]
-			mySeq=SeqRecord(Seq(inSeq, IUPAC.unambiguous_dna))
+			mySeq=SeqRecord(Seq(inSeq))
 			m = 1
 
 		while m == 1:
@@ -1185,8 +1184,8 @@ class RefactorRPC(object):
 #
 	def tlCheck(self, inSeq, outSeq):
 		"""Checks the translation of the engineered sequence against the wild-type sequence"""
-		myInSeq=SeqRecord(Seq(inSeq, IUPAC.unambiguous_dna))
-		myOutSeq=SeqRecord(Seq(outSeq, IUPAC.unambiguous_dna))
+		myInSeq=SeqRecord(Seq(inSeq))
+		myOutSeq=SeqRecord(Seq(outSeq))
 		if myInSeq.translate().seq==myOutSeq.translate().seq:
 			successFlag=True
 		else:
