@@ -1,39 +1,8 @@
-#####
-#
-# Synthetic Biology Gene Standardizer
-# Copyright (c) 2015, Tyson R. Shepherd, PhD
-# All rights reserved.
-#
-# Redistribution and use in source and binary forms, with or without
-# modification, are permitted provided that the following conditions are met:
-#
-# 1. Redistributions of source code must retain the above copyright notice, this
-#    list of conditions and the following disclaimer.
-# 2. Redistributions in binary form must reproduce the above copyright notice,
-#    this list of conditions and the following disclaimer in the documentation
-#    and/or other materials provided with the distribution.
-#
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
-# ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-# LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-# SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#
-# The views and conclusions contained in the software and documentation are those
-# of the authors and should not be interpreted as representing official policies,
-# either expressed or implied, of Uppsala University.
-#
-#####
 import sys
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 from Bio import SeqIO
-from Bio.Restriction import *
+from Bio import Restriction
 from math import *
 import random
 from Bio.Alphabet import IUPAC
@@ -186,7 +155,7 @@ class RefactorRPC(object):
 				mySeq.seq='ATG'+mySeq.seq[3:]
 				# recSeq.seq='ATG'+recSeq.seq[3:]
 			if 'N' in stnds:
-				ndeInst = NdeI.search(mySeq.seq)
+				ndeInst = Restriction.NdeI.search(mySeq.seq)
 				for i in ndeInst:
 					m = 1
 					j = (i - 3) % 3
@@ -218,7 +187,7 @@ class RefactorRPC(object):
 							mySeq.seq = mySeq.seq[:k-1]+"C"+mySeq.seq[k:]
 					changes.append(A)
 			if 'BglB' in stnds:
-				xhoInst = XhoI.search(mySeq.seq)
+				xhoInst = Restriction.XhoI.search(mySeq.seq)
 				for i in xhoInst:
 					m = 1
 					j = (i - 2) % 3
@@ -251,7 +220,7 @@ class RefactorRPC(object):
 						mySeq.seq = mySeq.seq[:k-1]+"C"+mySeq.seq[k:]
 					changes.append(A)
 			if (('BioB' in stnds) or ('BglB' in stnds)):
-				ecoInst = EcoRI.search(mySeq.seq)
+				ecoInst = Restriction.EcoRI.search(mySeq.seq)
 				for i in ecoInst:
 					m = 1
 					j = (i - 2) % 3
@@ -298,7 +267,7 @@ class RefactorRPC(object):
 							mySeq.seq = mySeq.seq[:k-1]+"C"+mySeq.seq[k:]
 					changes.append(A)
 			if 'BioB' in stnds:
-				xbaInst = XbaI.search(mySeq.seq)
+				xbaInst = Restriction.XbaI.search(mySeq.seq)
 				for i in xbaInst:
 					m = 1
 					j = (i - 2) % 3
@@ -318,7 +287,7 @@ class RefactorRPC(object):
 						A = "XbaI: G"+str(k)+"A"
 						changes.append(A)
 						mySeq.seq = mySeq.seq[:k-1]+"A"+mySeq.seq[k:]
-				speInst = SpeI.search(mySeq.seq)
+				speInst = Restriction.SpeI.search(mySeq.seq)
 				for i in speInst:
 					m = 1
 					j = (i - 2) % 3
@@ -338,7 +307,7 @@ class RefactorRPC(object):
 						A = "SpeI: G"+str(k)+"A"
 						changes.append(A)
 						mySeq.seq = mySeq.seq[:k-1]+"A"+mySeq.seq[k:]
-				pstInst = PstI.search(mySeq.seq)
+				pstInst = Restriction.PstI.search(mySeq.seq)
 				for i in pstInst:
 					m = 1
 					j = (i - 6) % 3
@@ -412,7 +381,7 @@ class RefactorRPC(object):
 				# 			A = "MfeI: T"+str(k)+"C"
 				# 			mySeq.seq = mySeq.seq[:k-1]+"C"+mySeq.seq[k:]
 				# 	changes.append(A)
-				avrInst = AvrII.search(mySeq.seq)
+				avrInst = Restriction.AvrII.search(mySeq.seq)
 				for i in avrInst:
 					m = 1
 					j = (i - 2) % 3
@@ -432,7 +401,7 @@ class RefactorRPC(object):
 						A = "AvrII: G"+str(k)+"A"
 						changes.append(A)
 						mySeq.seq = mySeq.seq[:k-1]+"A"+mySeq.seq[k:]
-				nheInst = NheI.search(mySeq.seq)
+				nheInst = Restriction.NheI.search(mySeq.seq)
 				for i in nheInst:
 					m = 1
 					j = (i - 2) % 3
@@ -452,7 +421,7 @@ class RefactorRPC(object):
 						A = "NheI: G"+str(k)+"A"
 						changes.append(A)
 						mySeq.seq = mySeq.seq[:k-1]+"A"+mySeq.seq[k:]
-				nsiInst = NsiI.search(mySeq.seq)
+				nsiInst = Restriction.NsiI.search(mySeq.seq)
 				for i in nsiInst:
 					m = 1
 					j = (i - 6) % 3
@@ -501,7 +470,7 @@ class RefactorRPC(object):
 							mySeq.seq = mySeq.seq[:k-1]+"G"+mySeq.seq[k:]
 						changes.append(A)
 			if 'BglB' in stnds:
-				bglInst = BglII.search(mySeq.seq)
+				bglInst = Restriction.BglII.search(mySeq.seq)
 				for i in bglInst:
 					m = 1
 					j = (i - 2) % 3
@@ -549,7 +518,7 @@ class RefactorRPC(object):
 							A = "BglII: C"+str(k)+"T"
 							mySeq.seq = mySeq.seq[:k-1]+"T"+mySeq.seq[k:]
 						changes.append(A)
-				bamInst = BamHI.search(mySeq.seq)
+				bamInst = Restriction.BamHI.search(mySeq.seq)
 				for i in bamInst:
 					m = 1
 					j = (i - 2) % 3
@@ -595,7 +564,7 @@ class RefactorRPC(object):
 							mySeq.seq = mySeq.seq[:k-1]+"T"+mySeq.seq[k:]
 						changes.append(A)
 			if 'BioB' in stnds:
-				notInst = NotI.search(mySeq.seq)
+				notInst = Restriction.NotI.search(mySeq.seq)
 				for i in notInst:
 					m = 1
 					j = (i - 3) % 3
@@ -629,7 +598,7 @@ class RefactorRPC(object):
 						A = "NotI: C"+str(k-3)+"T"
 						changes.append(A)
 						mySeq.seq = mySeq.seq[:k-4]+"T"+mySeq.seq[k-3:]
-				apoInst = ApoI.search(mySeq.seq)
+				apoInst = Restriction.ApoI.search(mySeq.seq)
 				for i in apoInst:
 					m = 1
 					j = (i - 2) % 3
